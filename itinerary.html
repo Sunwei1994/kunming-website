@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>昆明6天5晚行程安排 - 昆明游玩攻略</title>
+    <title>行程安排 - 昆明6天5晚游玩攻略</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -35,17 +35,8 @@
             .transition-all-300 {
                 transition: all 300ms ease-in-out;
             }
-            .timeline-line {
-                @apply absolute left-5 top-5 bottom-0 w-0.5 bg-primary/30;
-            }
-            .timeline-dot {
-                @apply absolute left-5 top-5 w-5 h-5 rounded-full bg-primary -translate-x-1/2 border-4 border-white;
-            }
-            .timeline-dot-active {
-                @apply bg-primary;
-            }
-            .timeline-dot-completed {
-                @apply bg-accent;
+            .day-card-active {
+                @apply border-primary bg-primary/5;
             }
         }
     </style>
@@ -95,1325 +86,606 @@
         <div class="bg-primary text-white py-12">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl md:text-4xl font-bold text-center">昆明6天5晚行程安排</h1>
-                <p class="text-center mt-2">精心规划的行程,让您的昆明之旅更加丰富多彩</p>
+                <p class="text-center mt-2">精心规划的行程，让您的昆明之旅充实而不匆忙</p>
             </div>
         </div>
     </header>
 
     <!-- 主要内容 -->
     <main class="container mx-auto px-4 py-8">
-        <!-- 行程概览 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-            <div class="p-6">
-                <h2 class="text-2xl font-bold mb-6">行程概览</h2>
-                <div class="relative">
-                    <!-- 时间线 -->
-                    <div class="timeline-line"></div>
-                    
-                    <!-- 第1天 -->
-                    <div class="relative pl-16 pb-12">
-                        <div class="timeline-dot timeline-dot-active"></div>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h3 class="text-xl font-bold text-primary mb-2">第1天:市区文化之旅</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">翠湖公园</span>
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">云南陆军讲武堂</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">过桥米线</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">官渡粑粑</span>
-                            </div>
-                            <p class="text-gray-600">游览昆明市中心的标志性景点,感受昆明的历史文化底蕴,品尝地道的云南美食。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 第2天 -->
-                    <div class="relative pl-16 pb-12">
-                        <div class="timeline-dot"></div>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h3 class="text-xl font-bold text-primary mb-2">第2天:滇池西山之旅</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">滇池</span>
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">西山风景区</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">汽锅鸡</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">酸角汁</span>
-                            </div>
-                            <p class="text-gray-600">游览"高原明珠"滇池,欣赏红嘴鸥,登西山俯瞰滇池全景,感受昆明的自然风光。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 第3天 -->
-                    <div class="relative pl-16 pb-12">
-                        <div class="timeline-dot"></div>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h3 class="text-xl font-bold text-primary mb-2">第3天:石林一日游</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">石林风景区</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">石林乳饼</span>
-                            </div>
-                            <p class="text-gray-600">前往石林风景区,欣赏奇特的喀斯特地貌,感受大自然的鬼斧神工。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 第4天 -->
-                    <div class="relative pl-16 pb-12">
-                        <div class="timeline-dot"></div>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h3 class="text-xl font-bold text-primary mb-2">第4天:民族文化之旅</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">云南民族村</span>
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">云南省博物馆</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">云南小锅米线</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">玫瑰鲜花饼</span>
-                            </div>
-                            <p class="text-gray-600">参观云南民族村,了解云南各少数民族的文化,游览云南省博物馆,深入了解云南的历史文化。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 第5天 -->
-                    <div class="relative pl-16 pb-12">
-                        <div class="timeline-dot"></div>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h3 class="text-xl font-bold text-primary mb-2">第5天:民俗文化之旅</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">斗南花市</span>
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">官渡古镇</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">豌豆粉</span>
-                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-full">破酥粑粑</span>
-                            </div>
-                            <p class="text-gray-600">游览亚洲最大的鲜花交易市场斗南花市,感受昆明"花都"的魅力,参观官渡古镇,体验昆明的民俗文化。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 第6天 -->
-                    <div class="relative pl-16">
-                        <div class="timeline-dot"></div>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h3 class="text-xl font-bold text-primary mb-2">第6天:休闲购物之旅</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">圆通寺</span>
-                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">南屏步行街</span>
-                            </div>
-                            <p class="text-gray-600">参观昆明最古老的佛教寺院圆通寺,游览南屏步行街,购买纪念品,结束愉快的昆明之旅。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- 行程天数选择 -->
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button class="day-btn px-6 py-3 rounded-lg border-2 bg-primary text-white font-medium" data-day="1">
+                <i class="fa fa-calendar-o mr-2"></i>第一天
+            </button>
+            <button class="day-btn px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:border-primary hover:text-primary transition-all-300" data-day="2">
+                <i class="fa fa-calendar-o mr-2"></i>第二天
+            </button>
+            <button class="day-btn px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:border-primary hover:text-primary transition-all-300" data-day="3">
+                <i class="fa fa-calendar-o mr-2"></i>第三天
+            </button>
+            <button class="day-btn px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:border-primary hover:text-primary transition-all-300" data-day="4">
+                <i class="fa fa-calendar-o mr-2"></i>第四天
+            </button>
+            <button class="day-btn px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:border-primary hover:text-primary transition-all-300" data-day="5">
+                <i class="fa fa-calendar-o mr-2"></i>第五天
+            </button>
+            <button class="day-btn px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:border-primary hover:text-primary transition-all-300" data-day="6">
+                <i class="fa fa-calendar-o mr-2"></i>第六天
+            </button>
         </div>
 
-        <!-- 详细行程 -->
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-6">详细行程</h2>
-            
-            <!-- 第1天 -->
-            <div class="mb-8">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-3">1</div>
-                    <h3 class="text-xl font-bold">第1天:市区文化之旅</h3>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">活动</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地点</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">交通</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">预计费用</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:00-09:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">从酒店出发</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明火车站环城南路轻居酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行至环城南路地铁站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">0元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:30-10:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往翠湖公园</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">环城南路地铁站 → 五一路站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁2号线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">10:00-12:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览翠湖公园</div>
-                                        <div class="text-gray-600 text-sm">欣赏湖光山色,冬季可观赏红嘴鸥</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市五华区翠湖南路67号</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">免费</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">12:00-13:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">午餐</div>
-                                        <div class="text-gray-600 text-sm">品尝云南特色过桥米线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">建新园（翠湖店）</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">40元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">13:30-15:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览云南陆军讲武堂</div>
-                                        <div class="text-gray-600 text-sm">了解中国近代军事历史</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市五华区翠湖西路22号</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">免费</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">15:00-16:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">下午茶</div>
-                                        <div class="text-gray-600 text-sm">品尝官渡粑粑</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">老俩口官渡粑粑（文化巷店）</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">12元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">16:00-18:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览文化巷、文林街</div>
-                                        <div class="text-gray-600 text-sm">感受昆明的文艺气息</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市五华区文化巷、文林街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">0元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">18:00-19:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">晚餐</div>
-                                        <div class="text-gray-600 text-sm">品尝云南特色菜肴</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">福照楼（翠湖店）</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">80元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">19:30-20:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">五一路站 → 环城南路站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁2号线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fa fa-info-circle text-blue-500"></i>
-                        </div>
-                        <div class="ml-3">
-                            <p class="text-sm text-blue-700">
-                                翠湖公园和云南陆军讲武堂相邻,可以安排在同一天游览。文化巷和文林街是昆明的文艺街区,有很多特色小店和咖啡馆,适合悠闲地逛一逛。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 第2天 -->
-            <div class="mb-8">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-3">2</div>
-                    <h3 class="text-xl font-bold">第2天:滇池西山之旅</h3>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">活动</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地点</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">交通</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">预计费用</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:00-09:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">从酒店出发</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明火车站环城南路轻居酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行至环城南路地铁站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">0元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:30-10:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往滇池</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">环城南路站 → 海埂大坝站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁5号线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">5元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">10:30-12:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览滇池</div>
-                                        <div class="text-gray-600 text-sm">欣赏"高原明珠",冬季可观赏红嘴鸥</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">云南省昆明市西山区滇池路1318号</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">免费</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">12:30-14:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">午餐</div>
-                                        <div class="text-gray-600 text-sm">品尝云南特色汽锅鸡</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">云南人家（滇池路店）</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">85元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">14:00-14:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往西山风景区</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">滇池 → 西山风景区</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">公交6路、51路、94路</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">2元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">14:30-17:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览西山风景区</div>
-                                        <div class="text-gray-600 text-sm">登西山俯瞰滇池全景,参观龙门石窟</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市西山区西山公路</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行或缆车</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">40元/人（门票）,30元/人（缆车单程）</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">17:30-18:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回市区</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">西山风景区 → 市区</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">公交6路、51路、94路</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">2元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">18:30-20:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">晚餐</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">南屏步行街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">60元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">20:00-21:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">南屏步行街 → 酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fa fa-info-circle text-blue-500"></i>
-                        </div>
-                        <div class="ml-3">
-                            <p class="text-sm text-blue-700">
-                                西山风景区较大,建议预留充足的时间。如果体力允许,建议步行登山,可以欣赏沿途的风景；如果体力有限,可以选择乘坐缆车。傍晚时分,从西山俯瞰滇池的景色最美。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 第3天 -->
-            <div class="mb-8">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-3">3</div>
-                    <h3 class="text-xl font-bold">第3天:石林一日游</h3>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">活动</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地点</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">交通</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">预计费用</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">08:00-08:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">从酒店出发</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明火车站环城南路轻居酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行至东部汽车客运站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">0元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">08:30-10:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往石林</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">东部汽车客运站 → 石林</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">大巴</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">30元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">10:00-10:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往石林风景区</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">石林客运站 → 石林风景区</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">公交或打车</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">2元/人（公交）或20元（打车）</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">10:30-15:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览石林风景区</div>
-                                        <div class="text-gray-600 text-sm">欣赏奇特的喀斯特地貌,参观大石林、小石林等景点</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">云南省昆明市石林彝族自治县石林大道</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行或观光车</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">130元/人（门票）,25元/人（观光车）</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">15:00-16:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">午餐</div>
-                                        <div class="text-gray-600 text-sm">品尝石林特色菜肴,如石林乳饼</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">石林风景区内或附近餐馆</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">60元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">16:00-16:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往石林客运站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">石林风景区 → 石林客运站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">公交或打车</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">2元/人（公交）或20元（打车）</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">16:30-18:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回昆明</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">石林客运站 → 东部汽车客运站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">大巴</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">30元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">18:00-19:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">东部汽车客运站 → 酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁或公交</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fa fa-info-circle text-blue-500"></i>
-                        </div>
-                        <div class="ml-3">
-                            <p class="text-sm text-blue-700">
-                                石林风景区距离昆明市区较远,建议提前规划好时间。景区内较大,建议穿着舒适的鞋子,预留充足的时间游览。如果时间充裕,可以考虑参观石林附近的长湖景区。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 第4天 -->
-            <div class="mb-8">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-3">4</div>
-                    <h3 class="text-xl font-bold">第4天:民族文化之旅</h3>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">活动</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地点</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">交通</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">预计费用</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:00-09:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">从酒店出发</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明火车站环城南路轻居酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行至环城南路地铁站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">0元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:30-10:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往云南民族村</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">环城南路站 → 云南民族村</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">公交24路、44路、73路、94路、135路</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">2元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">10:30-14:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览云南民族村</div>
-                                        <div class="text-gray-600 text-sm">了解云南各少数民族的文化,观看民俗表演</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市西山区滇池路1310号</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行或观光车</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">90元/人（门票）,30元/人（观光车）</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">14:00-15:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">午餐</div>
-                                        <div class="text-gray-600 text-sm">品尝云南特色小吃,如云南小锅米线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">云南民族村内或附近餐馆</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">25元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">15:00-15:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往云南省博物馆</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">云南民族村 → 云南省博物馆</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">公交或打车</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">2元（公交）或20元（打车）</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">15:30-17:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览云南省博物馆</div>
-                                        <div class="text-gray-600 text-sm">了解云南的历史文化</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">云南省昆明市官渡区广福路6393号</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">免费</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">17:30-18:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往南屏步行街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">云南省博物馆 → 南屏步行街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁或公交</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">18:30-20:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">晚餐</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">南屏步行街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">70元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">20:00-21:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">南屏步行街 → 酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fa fa-info-circle text-blue-500"></i>
-                        </div>
-                        <div class="ml-3">
-                            <p class="text-sm text-blue-700">
-                                云南民族村较大,建议预留充足的时间游览。民族村内有多个民族村寨,可以了解不同民族的文化和风俗习惯。云南省博物馆周一闭馆,请注意安排时间。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 第5天 -->
-            <div class="mb-8">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-3">5</div>
-                    <h3 class="text-xl font-bold">第5天:民俗文化之旅</h3>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">活动</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地点</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">交通</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">预计费用</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:00-09:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">从酒店出发</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明火车站环城南路轻居酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行至环城南路地铁站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">0元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:30-10:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往斗南花市</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">环城南路站 → 斗南站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁1号线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">6元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">10:30-12:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览斗南花市</div>
-                                        <div class="text-gray-600 text-sm">欣赏各种鲜花,购买鲜花,参观鲜花主题馆</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市呈贡区斗南镇</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">免费</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">12:30-13:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">午餐</div>
-                                        <div class="text-gray-600 text-sm">品尝云南特色小吃,如豌豆粉</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">斗南花市附近餐馆</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">20元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">13:30-14:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往官渡古镇</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">斗南站 → 星耀路站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁1号线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">14:30-17:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览官渡古镇</div>
-                                        <div class="text-gray-600 text-sm">参观妙湛寺金刚塔,体验乌铜走银等非遗工艺</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市官渡区官渡街道</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">免费</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">17:00-18:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">下午茶</div>
-                                        <div class="text-gray-600 text-sm">品尝官渡粑粑、破酥粑粑等特色小吃</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">官渡古镇内</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">15元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">18:00-19:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">星耀路站 → 环城南路站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁1号线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fa fa-info-circle text-blue-500"></i>
-                        </div>
-                        <div class="ml-3">
-                            <p class="text-sm text-blue-700">
-                                斗南花市是亚洲最大的鲜花交易市场,鲜花种类繁多,价格便宜。如果想购买鲜花,建议下午或傍晚前往,此时价格更加便宜。官渡古镇有许多特色小吃和手工艺品,可以购买一些纪念品。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 第6天 -->
-            <div class="mb-8">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-3">6</div>
-                    <h3 class="text-xl font-bold">第6天:休闲购物之旅</h3>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">活动</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地点</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">交通</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">预计费用</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:00-09:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">从酒店出发</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明火车站环城南路轻居酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行至环城南路地铁站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">0元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">09:30-10:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往圆通寺</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">环城南路站 → 穿心鼓楼站</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁2号线</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">10:30-12:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览圆通寺</div>
-                                        <div class="text-gray-600 text-sm">参观昆明最古老的佛教寺院</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市五华区圆通街30号</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">5元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">12:00-13:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">午餐</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">圆通寺附近餐馆</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">50元/人</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">13:30-14:30</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">前往南屏步行街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">圆通寺 → 南屏步行街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁或公交</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">14:30-17:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">游览南屏步行街</div>
-                                        <div class="text-gray-600 text-sm">购物,购买纪念品</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">昆明市五华区南屏步行街</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">步行</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">根据个人消费而定</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-gray-900">17:00-18:00</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-medium text-gray-900">返回酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">南屏步行街 → 酒店</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">地铁</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-gray-600">3元</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fa fa-info-circle text-blue-500"></i>
-                        </div>
-                        <div class="ml-3">
-                            <p class="text-sm text-blue-700">
-                                圆通寺是昆明最古老的佛教寺院,寺内环境幽静,可以感受昆明的佛教文化。南屏步行街是昆明最繁华的商业街,有许多商场和店铺,可以购买纪念品和特产。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 费用预算 -->
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-6">费用预算</h2>
-            
+        <!-- 行程详情 -->
+        <div class="day-content" id="day-1">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="bg-gray-100">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">项目</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">明细</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">费用（每人）</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-medium text-gray-900">交通</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">地铁、公交、打车等</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">约200元</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-medium text-gray-900">门票</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">石林风景区、西山风景区、云南民族村等</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">约300元</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-medium text-gray-900">餐饮</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">早餐、午餐、晚餐、小吃等</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">约1200元</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-medium text-gray-900">住宿</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">昆明火车站环城南路轻居酒店（5晚）</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">约1500元（双人间,每人）</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-medium text-gray-900">购物</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">纪念品、特产等</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">约500元（根据个人消费而定）</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-medium text-gray-900">其他</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">保险、小费等</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600">约200元</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-bold text-gray-900">总计</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-gray-600"></div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-bold text-primary">约3900元/人</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="bg-primary/10 p-6 border-l-4 border-primary">
+                    <h2 class="text-2xl font-bold text-primary">第一天：抵达昆明 - 翠湖公园 - 云南陆军讲武堂</h2>
+                    <p class="text-gray-600 mt-1">初识春城，感受昆明的悠闲与历史底蕴</p>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <h3 class="text-xl font-bold mb-4">行程安排</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">上午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">抵达昆明，入住酒店</h4>
+                                        <p class="text-gray-600 mt-1">建议选择市中心酒店，方便出行。办理入住后稍作休息，适应高原气候。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">下午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">翠湖公园漫步</h4>
+                                        <p class="text-gray-600 mt-1">翠湖公园是昆明的标志性景点，湖水清澈，树木葱郁。冬季可以看到成群的红嘴鸥，夏季荷花盛开，景色宜人。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约2小时 | 门票：免费</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">傍晚</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">参观云南陆军讲武堂</h4>
+                                        <p class="text-gray-600 mt-1">位于翠湖公园西门对面，是中国近代著名的军事院校之一，培养了大批军事人才。建筑风格独特，历史底蕴深厚。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约1.5小时 | 门票：免费</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">晚上</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">南强街巷美食</h4>
+                                        <p class="text-gray-600 mt-1">前往昆明著名的美食街区，品尝过桥米线、汽锅鸡、官渡粑粑等特色美食。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">游玩贴士</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">昆明海拔约1900米，初到可能会有轻微高原反应，建议多喝水，避免剧烈运动。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">翠湖公园周边停车不便，建议乘坐地铁或公交前往。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">云南陆军讲武堂周一闭馆，其他时间免费开放，建议携带身份证。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">昆明昼夜温差较大，建议携带薄外套。</p>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <h3 class="text-xl font-bold mb-4">交通指南</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-subway text-primary mr-2"></i>地铁2号线到五一路站，步行约10分钟到翠湖公园</p>
+                                    <p class="text-gray-600 text-sm"><i class="fa fa-bus text-primary mr-2"></i>多路公交车可达翠湖公园，如1路、85路、100路等</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <i class="fa fa-info-circle text-blue-500"></i>
+        </div>
+
+        <div class="day-content hidden" id="day-2">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-primary/10 p-6 border-l-4 border-primary">
+                    <h2 class="text-2xl font-bold text-primary">第二天：云南野生动物园（全天游玩）</h2>
+                    <p class="text-gray-600 mt-1">与野生动物亲密接触，享受亲子时光</p>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <h3 class="text-xl font-bold mb-4">行程安排</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">上午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">早餐后出发前往野生动物园</h4>
+                                        <p class="text-gray-600 mt-1">建议8:30前到达景区，避开人流高峰。景区开放时间为9:00-18:00。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：全天 | 门票：成人80元，儿童半价</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">中午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">景区内午餐</h4>
+                                        <p class="text-gray-600 mt-1">景区内有多个餐厅和小吃摊，可以品尝简餐和当地特色小吃。</p>
+                                        <p class="text-gray-600 mt-1">也可以自备干粮和水，在草坪上野餐。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">下午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">继续游玩，观看动物表演</h4>
+                                        <p class="text-gray-600 mt-1">下午有精彩的动物表演，包括大象表演、鹦鹉表演等，具体时间以景区公告为准。</p>
+                                        <p class="text-gray-600 mt-1">可以乘坐观光车游览猛兽区，安全又刺激。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">晚上</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">返回市区，晚餐休息</h4>
+                                        <p class="text-gray-600 mt-1">游玩一天比较疲惫，建议选择酒店附近的餐厅用餐，早点休息。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">游玩贴士</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">景区较大，建议穿舒适的运动鞋，避免高跟鞋。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">观光车费用包含在门票内，猛兽区必须乘坐观光车游览。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">可以自带蔬菜投喂温顺动物，如长颈鹿、羊驼等。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">夏季注意防晒，景区内树木较多，但紫外线依然强烈。</p>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <h3 class="text-xl font-bold mb-4">交通指南</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-taxi text-primary mr-2"></i>打车前往约40元，车程约30分钟</p>
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-bus text-primary mr-2"></i>乘坐241路、235路公交车直达景区</p>
+                                    <p class="text-gray-600 text-sm"><i class="fa fa-car text-primary mr-2"></i>自驾导航至云南野生动物园，景区内有停车场</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ml-3">
-                        <p class="text-sm text-blue-700">
-                            以上费用仅供参考,实际费用可能会因个人消费习惯、季节变化等因素而有所不同。建议提前做好预算规划,并预留一定的备用金。
-                        </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-content hidden" id="day-3">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-primary/10 p-6 border-l-4 border-primary">
+                    <h2 class="text-2xl font-bold text-primary">第三天：滇池 - 西山风景区</h2>
+                    <p class="text-gray-600 mt-1">高原明珠与睡美人山的完美结合</p>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <h3 class="text-xl font-bold mb-4">行程安排</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">上午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">滇池海埂大坝观鸥（冬季）</h4>
+                                        <p class="text-gray-600 mt-1">冬季是观赏红嘴鸥的最佳时节，可以投喂海鸥，与它们亲密互动。夏季可以欣赏滇池的湖光山色。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约2小时 | 门票：免费</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">中午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">滇池附近午餐</h4>
+                                        <p class="text-gray-600 mt-1">推荐品尝滇池鱼鲜，附近有多家特色餐厅，味道鲜美。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">下午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">登西山，俯瞰滇池全景</h4>
+                                        <p class="text-gray-600 mt-1">西山又称睡美人山，是昆明的标志性山脉。可以选择徒步登山或乘坐缆车。</p>
+                                        <p class="text-gray-600 mt-1">龙门石窟是西山的标志性景点，地势险峻，风景绝佳。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约4小时 | 门票：40元，缆车单程25元</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">晚上</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">返回市区，品尝过桥米线</h4>
+                                        <p class="text-gray-600 mt-1">推荐前往建新园或桥香园，品尝正宗的过桥米线。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">游玩贴士</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">西山徒步路线较长，建议根据自身情况选择登山方式。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">龙门石窟部分路段较窄，注意安全，恐高者慎行。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">冬季投喂海鸥的面包可以提前准备，景区内价格较高。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">滇池周边风较大，建议携带防风外套。</p>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <h3 class="text-xl font-bold mb-4">交通指南</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-subway text-primary mr-2"></i>地铁5号线到兴体路站，步行约15分钟到海埂大坝</p>
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-bus text-primary mr-2"></i>乘坐44路、73路、94路公交车到海埂大坝</p>
+                                    <p class="text-gray-600 text-sm"><i class="fa fa-car text-primary mr-2"></i>自驾导航至海埂大坝，周边有停车场</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-content hidden" id="day-4">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-primary/10 p-6 border-l-4 border-primary">
+                    <h2 class="text-2xl font-bold text-primary">第四天：云南七彩欢乐世界</h2>
+                    <p class="text-gray-600 mt-1">主题乐园狂欢，释放激情与活力</p>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <h3 class="text-xl font-bold mb-4">行程安排</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">上午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">早餐后出发前往七彩欢乐世界</h4>
+                                        <p class="text-gray-600 mt-1">建议9:00前到达景区，开园时间为10:00-21:00（周末延长至22:00）。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：全天 | 门票：成人200元，儿童120元</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">中午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">景区内午餐</h4>
+                                        <p class="text-gray-600 mt-1">景区内有多个主题餐厅和小吃摊，提供各种美食选择。</p>
+                                        <p class="text-gray-600 mt-1">推荐品尝云南特色小吃，如小锅米线、豌豆粉等。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">下午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">畅玩各类游乐设施</h4>
+                                        <p class="text-gray-600 mt-1">园区分为七大主题区域，有过山车、摩天轮、旋转木马等多种游乐设施。</p>
+                                        <p class="text-gray-600 mt-1">下午有花车巡游和民族表演，精彩纷呈。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">晚上</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">观看烟花表演，返回市区</h4>
+                                        <p class="text-gray-600 mt-1">周末和节假日晚上有烟花表演，非常震撼。</p>
+                                        <p class="text-gray-600 mt-1">表演结束后返回市区，结束愉快的一天。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">游玩贴士</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">建议提前在网上购票，比现场购票便宜20-30元。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">热门项目如过山车、海盗船等排队时间较长，建议错峰游玩。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">夏季注意防晒，建议携带防晒霜、帽子、墨镜等。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">园区内消费较高，可以自备少量零食和水。</p>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <h3 class="text-xl font-bold mb-4">交通指南</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-taxi text-primary mr-2"></i>打车前往约80元，车程约40分钟</p>
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-bus text-primary mr-2"></i>乘坐K38路、K28路公交车直达景区</p>
+                                    <p class="text-gray-600 text-sm"><i class="fa fa-car text-primary mr-2"></i>自驾导航至云南七彩欢乐世界，停车场充足</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-content hidden" id="day-5">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-primary/10 p-6 border-l-4 border-primary">
+                    <h2 class="text-2xl font-bold text-primary">第五天：云南民族村 - 云南省博物馆</h2>
+                    <p class="text-gray-600 mt-1">体验民族文化，感受历史厚重</p>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <h3 class="text-xl font-bold mb-4">行程安排</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">上午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">云南民族村深度游</h4>
+                                        <p class="text-gray-600 mt-1">云南民族村展示了云南25个少数民族的建筑、服饰、饮食和文化习俗。</p>
+                                        <p class="text-gray-600 mt-1">可以观看民族歌舞表演，参与篝火晚会，体验少数民族的生活方式。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约3小时 | 门票：成人90元，儿童半价</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">中午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">民族村内午餐</h4>
+                                        <p class="text-gray-600 mt-1">民族村内有多个少数民族餐厅，可以品尝到不同民族的特色美食。</p>
+                                        <p class="text-gray-600 mt-1">推荐品尝傣族的菠萝饭、彝族的坨坨肉等。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">下午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">参观云南省博物馆</h4>
+                                        <p class="text-gray-600 mt-1">云南省博物馆是云南最大的综合性博物馆，馆藏文物丰富，展示了云南的历史文化和民族风情。</p>
+                                        <p class="text-gray-600 mt-1">馆内有多个展厅，包括远古云南、文明之光、青铜时代等。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约2.5小时 | 门票：免费（需提前预约）</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">晚上</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">官渡古镇美食</h4>
+                                        <p class="text-gray-600 mt-1">前往官渡古镇，品尝正宗的官渡粑粑、豌豆粉等特色小吃。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">游玩贴士</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">云南民族村建议跟随导游讲解，能更好地了解各民族文化。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">云南省博物馆周一闭馆，其他时间免费开放，建议提前在公众号预约。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">博物馆内禁止拍照，部分展厅可以拍照但禁止使用闪光灯。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">民族村内购物时注意辨别商品真伪，避免上当受骗。</p>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <h3 class="text-xl font-bold mb-4">交通指南</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-bus text-primary mr-2"></i>民族村：乘坐24路、44路、73路公交车直达</p>
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-subway text-primary mr-2"></i>省博物馆：地铁1号线到福德站，步行约15分钟</p>
+                                    <p class="text-gray-600 text-sm"><i class="fa fa-taxi text-primary mr-2"></i>民族村到省博物馆打车约25元，车程约20分钟</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-content hidden" id="day-6">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-primary/10 p-6 border-l-4 border-primary">
+                    <h2 class="text-2xl font-bold text-primary">第六天：圆通寺 - 南屏步行街 - 返程</h2>
+                    <p class="text-gray-600 mt-1">宗教文化与都市繁华的完美融合</p>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <h3 class="text-xl font-bold mb-4">行程安排</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">上午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">参观圆通寺</h4>
+                                        <p class="text-gray-600 mt-1">圆通寺是昆明最古老的佛教寺院之一，始建于唐代，建筑风格独特，依山而建。</p>
+                                        <p class="text-gray-600 mt-1">寺内有高大的佛像、精美的壁画和古老的建筑，香火旺盛。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约1.5小时 | 门票：6元</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">中午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">南屏步行街午餐</h4>
+                                        <p class="text-gray-600 mt-1">南屏步行街是昆明最繁华的商业街，有多家老字号餐厅和特色小吃店。</p>
+                                        <p class="text-gray-600 mt-1">推荐品尝过桥米线、汽锅鸡等云南特色美食。</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">下午</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">南屏步行街购物休闲</h4>
+                                        <p class="text-gray-600 mt-1">可以购买云南特产，如鲜花饼、普洱茶、民族服饰等。</p>
+                                        <p class="text-gray-600 mt-1">步行街周边有金马碧鸡坊、东寺塔等景点，可以顺路参观。</p>
+                                        <p class="text-gray-600 mt-1">游玩时间：约2-3小时</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold text-primary">晚上</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">根据航班/火车时间返程</h4>
+                                        <p class="text-gray-600 mt-1">建议提前2小时到达机场，提前1小时到达火车站。</p>
+                                        <p class="text-gray-600 mt-1">结束愉快的昆明之旅，期待下次再来！</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">游玩贴士</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">圆通寺内禁止大声喧哗，进入殿堂需脱帽，禁止拍照。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">南屏步行街周末人流量较大，注意保管好个人财物。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">购买特产时建议货比三家，避免购买到假冒伪劣产品。</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-info-circle text-primary mt-1 mr-2"></i>
+                                    <p class="text-gray-600 text-sm">返程前注意查看交通状况，避免因堵车耽误行程。</p>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <h3 class="text-xl font-bold mb-4">交通指南</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-subway text-primary mr-2"></i>圆通寺：地铁2号线到穿心鼓楼站，步行约10分钟</p>
+                                    <p class="text-gray-600 text-sm mb-2"><i class="fa fa-bus text-primary mr-2"></i>南屏街：多路公交车可达，如1路、4路、62路等</p>
+                                    <p class="text-gray-600 text-sm"><i class="fa fa-taxi text-primary mr-2"></i>市区到机场打车约80元，到火车站约15元</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 行程总结 -->
+        <div class="mt-12 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center">行程总结</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">费用预算（人均）</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex justify-between">
+                                <span>住宿（5晚）</span>
+                                <span>500-1500元</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>门票费用</span>
+                                <span>500-800元</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>餐饮费用</span>
+                                <span>400-600元</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>交通费用</span>
+                                <span>200-400元</span>
+                            </li>
+                            <li class="flex justify-between font-bold border-t pt-2">
+                                <span>总计</span>
+                                <span>1600-3300元</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">注意事项</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>昆明气候温和，但昼夜温差大，建议携带薄外套</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>云南紫外线强烈，注意防晒，携带防晒霜、帽子等</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>尊重当地少数民族的风俗习惯</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>提前预订酒店和机票/火车票，避免旺季无房</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1426,7 +698,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">昆明旅游攻略</h3>
-                    <p class="text-gray-400">为您提供昆明6天5晚的完整游玩指南,包括景点介绍、美食推荐、交通路线和行程安排。</p>
+                    <p class="text-gray-400">为您提供昆明6天5晚的完整游玩指南，包括景点介绍、美食推荐、交通路线和行程安排。</p>
                 </div>
                 
                 <div>
@@ -1497,6 +769,39 @@
         document.getElementById('menu-toggle').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 行程天数切换
+        const dayBtns = document.querySelectorAll('.day-btn');
+        const dayContents = document.querySelectorAll('.day-content');
+        
+        dayBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 移除所有按钮的激活状态
+                dayBtns.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white');
+                    b.classList.add('border-gray-300', 'text-gray-700');
+                });
+                
+                // 添加当前按钮的激活状态
+                this.classList.remove('border-gray-300', 'text-gray-700');
+                this.classList.add('bg-primary', 'text-white');
+                
+                // 隐藏所有内容
+                dayContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // 显示对应内容
+                const day = this.getAttribute('data-day');
+                document.getElementById(`day-${day}`).classList.remove('hidden');
+                
+                // 滚动到顶部
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
         
         // 平滑滚动
