@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昆明6天5晚游玩攻略</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#EC4899',
+                        accent: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    height: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .bg-gradient-overlay {
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-800">昆明旅游攻略</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-primary font-medium hover:text-primary-dark transition-all-300">首页</a>
+                    <a href="map.html" class="text-gray-600 hover:text-primary transition-all-300">地图</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary transition-all-300">景点</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary transition-all-300">美食</a>
+                    <a href="transportation.html" class="text-gray-600 hover:text-primary transition-all-300">交通</a>
+                    <a href="itinerary.html" class="text-gray-600 hover:text-primary transition-all-300">行程</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="index.html" class="block py-2 text-primary font-medium">首页</a>
+                <a href="map.html" class="block py-2 text-gray-600 hover:text-primary">地图</a>
+                <a href="attractions.html" class="block py-2 text-gray-600 hover:text-primary">景点</a>
+                <a href="food.html" class="block py-2 text-gray-600 hover:text-primary">美食</a>
+                <a href="transportation.html" class="block py-2 text-gray-600 hover:text-primary">交通</a>
+                <a href="itinerary.html" class="block py-2 text-gray-600 hover:text-primary">行程</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-16 relative">
+        <div class="relative h-[500px] overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70 z-10"></div>
+            <div class="absolute inset-0 bg-[url('https://p11-doubao-search-sign.byteimg.com/labis/50b1d9557cb9ef48cee02f6693192ea4~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=yLeVbZ4XdPZLzkvrB25zNrezBow%3D')] bg-cover bg-center"></div>
+            <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+                <div class="max-w-2xl text-white">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">昆明6天5晚游玩攻略</h1>
+                    <p class="text-xl mb-8">探索"春城"昆明的自然美景、民族文化与特色美食</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="itinerary.html" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-all-300">
+                            <i class="fa fa-calendar mr-2"></i>查看行程
+                        </a>
+                        <a href="map.html" class="bg-white hover:bg-gray-100 text-primary px-6 py-3 rounded-lg font-medium transition-all-300">
+                            <i class="fa fa-map mr-2"></i>查看地图
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 行程概览 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">行程概览</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 第1天 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="h-48 bg-[url('https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/d9243348ff5742b4bc3f8b397c8dacd1~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=i3p6CJktIyqE0ZQstZdpkaUfOGo%3D')] bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-gradient-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">第1天:市区精华游</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            <span class="text-gray-700">翠湖公园 → 云南陆军讲武堂 → 南屏步行街</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-cutlery text-secondary mr-2"></i>
+                            <span class="text-gray-700">午餐:过桥米线 | 晚餐:南屏步行街小吃</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-money text-accent mr-2"></i>
+                            <span class="text-gray-700">预计花费:¥200/人</span>
+                        </div>
+                        <a href="itinerary.html#day1" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 第2天 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="h-48 bg-[url('https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1258287429121867786~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=hWLJOkOr%2FvHte%2FrYv6NyfBMbC2A%3D')] bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-gradient-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">第2天:滇池西山游</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            <span class="text-gray-700">滇池海埂大坝 → 西山风景区 → 龙门石窟</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-cutlery text-secondary mr-2"></i>
+                            <span class="text-gray-700">午餐:西山农家乐 | 晚餐:汽锅鸡</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-money text-accent mr-2"></i>
+                            <span class="text-gray-700">预计花费:¥260/人</span>
+                        </div>
+                        <a href="itinerary.html#day2" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 第3天 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="h-48 bg-[url('https://p3-doubao-search-sign.byteimg.com/pgc-image/a879cd99d9fb4be49344a6af09405984~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479981&x-signature=fF7OTqsO6UToui9%2FteV8DjGkQfg%3D')] bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-gradient-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">第3天:石林一日游</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            <span class="text-gray-700">石林风景区 → 长湖景区</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-cutlery text-secondary mr-2"></i>
+                            <span class="text-gray-700">午餐:石林农家菜 | 晚餐:彝族风味餐</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-money text-accent mr-2"></i>
+                            <span class="text-gray-700">预计花费:¥350/人</span>
+                        </div>
+                        <a href="itinerary.html#day3" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 第4天 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="h-48 bg-[url('https://p26-doubao-search-sign.byteimg.com/labis/6b188d413349f9e8e941986a0c0ec5de~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=daqOnqNj5VqN9V1Yf%2Bcz6lBHl80%3D')] bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-gradient-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">第4天:民族文化游</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            <span class="text-gray-700">云南民族村 → 云南省博物馆</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-cutlery text-secondary mr-2"></i>
+                            <span class="text-gray-700">午餐:民族村特色小吃 | 晚餐:官渡古镇美食</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-money text-accent mr-2"></i>
+                            <span class="text-gray-700">预计花费:¥280/人</span>
+                        </div>
+                        <a href="itinerary.html#day4" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 第5天 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="h-48 bg-[url('https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/869978886091177994~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=8%2B1dp6gzjQtXSMjx9ZYb73KmVxE%3D')] bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-gradient-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">第5天:休闲购物游</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            <span class="text-gray-700">斗南花市 → 官渡古镇 → 南亚风情第壹城</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-cutlery text-secondary mr-2"></i>
+                            <span class="text-gray-700">午餐:官渡粑粑 | 晚餐:南亚风情第壹城美食</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-money text-accent mr-2"></i>
+                            <span class="text-gray-700">预计花费:¥300/人</span>
+                        </div>
+                        <a href="itinerary.html#day5" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 第6天 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="h-48 bg-[url('https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D')] bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-gradient-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">第6天:告别昆明</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            <span class="text-gray-700">圆通寺 → 翠湖公园（再次游览）</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-cutlery text-secondary mr-2"></i>
+                            <span class="text-gray-700">午餐:最后一顿过桥米线</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-money text-accent mr-2"></i>
+                            <span class="text-gray-700">预计花费:¥150/人</span>
+                        </div>
+                        <a href="itinerary.html#day6" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门景点 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">热门景点</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">昆明拥有丰富的自然景观和人文景点,以下是我们精心挑选的必游景点</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 滇池 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1261042281285943322~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=%2Fh4djJ01LxJk2%2F2dNZyY8oRqMtw%3D" alt="滇池" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            必游景点
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">滇池</h3>
+                        <div class="flex items-center mb-2">
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star-half-o text-yellow-400"></i>
+                            <span class="text-gray-600 text-sm ml-2">4.7分</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">云南最大的淡水湖,有"高原明珠"之称。冬季有红嘴鸥从西伯利亚飞来越冬,是昆明的标志性景点。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">免费</span>
+                            <a href="attractions.html#dianchi" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 石林 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/970532437091156038~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479981&x-signature=Layk5aqXZWrybvJACesp5fd5aGg%3D" alt="石林" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            必游景点
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">石林风景区</h3>
+                        <div class="flex items-center mb-2">
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star-half-o text-yellow-400"></i>
+                            <span class="text-gray-600 text-sm ml-2">4.7分</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">世界自然遗产,以奇特的喀斯特地貌闻名,有"天下第一奇观"之称。2.7亿年前曾是海洋,如今形成壮观的石柱群。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">¥130/人</span>
+                            <a href="attractions.html#shilin" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 翠湖公园 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-qvj2lq49k0/97d181e59769494484891ba4862b48a2~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=XJOcI80zqyp4nJEPMwyNl%2FCV9UE%3D" alt="翠湖公园" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            必游景点
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">翠湖公园</h3>
+                        <div class="flex items-center mb-2">
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <span class="text-gray-600 text-sm ml-2">4.8分</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">昆明市中心的核心景点,有"城中之玉"的美誉。夏季荷花盛开,冬季红嘴鸥聚集,周边有云南大学、文化巷等文艺街区。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">免费</span>
+                            <a href="attractions.html#cuihu" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="attractions.html" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg font-medium transition-all-300">
+                    查看更多景点 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色美食 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">特色美食</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">昆明美食融合了多民族饮食文化,以下是必尝的特色美食</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 过桥米线 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://p11-doubao-search-sign.byteimg.com/pgc-image/1526882210531c9ab17d94d~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=Q2hIvxMLeeftUn26PeENanLrSKA%3D" alt="过桥米线" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            必尝美食
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">过桥米线</h3>
+                        <p class="text-gray-600 mb-4">云南最具代表性的特色美食,用滚烫的鸡汤将生肉片、蔬菜和米线烫熟后食用,味道鲜美。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">¥30-60/份</span>
+                            <a href="food.html#guoqiaomixian" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 汽锅鸡 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://p26-doubao-search-sign.byteimg.com/labis/8e08524eef8d648eec35af4a39c99815~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=9qwoFEIwOfCoXtrhofnm4stX4Yw%3D" alt="汽锅鸡" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            必尝美食
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">汽锅鸡</h3>
+                        <p class="text-gray-600 mb-4">云南传统名菜,用建水紫陶汽锅蒸制而成,鸡肉鲜嫩,汤汁鲜美,营养丰富。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">¥80-120/锅</span>
+                            <a href="food.html#qiguoji" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 官渡粑粑 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://p26-doubao-search-sign.byteimg.com/labis/image/87d31e09f9d4a8829b08ffd8a2f6b706~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=K46yGkcoKM3dvjlhuD0XNrqFg%2Fc%3D" alt="官渡粑粑" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            必尝美食
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">官渡粑粑</h3>
+                        <p class="text-gray-600 mb-4">昆明传统街头小吃,以面粉为主料,搭配各种馅料,经发酵、包馅、摊制后,在旋转锅上烙至金黄。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">¥10-15/个</span>
+                            <a href="food.html#guandubaba" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="food.html" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg font-medium transition-all-300">
+                    查看更多美食 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">交通指南</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">从昆明火车站环城南路轻居酒店出发,如何便捷地前往各个景点</p>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-hotel text-primary mr-2"></i>
+                        住宿位置
+                    </h3>
+                    <p class="text-gray-700">昆明火车站环城南路轻居酒店</p>
+                    <p class="text-gray-600 text-sm">地址:云南省昆明市官渡区环城南路与北京路交叉口</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border-l-4 border-primary pl-4">
+                        <h4 class="font-bold text-lg mb-2">地铁出行</h4>
+                        <p class="text-gray-700 mb-2">酒店步行3分钟即可到达地铁1号线环城南路站</p>
+                        <p class="text-gray-600 text-sm">可直达:翠湖公园（五一路站）、南屏步行街（东风广场站）、斗南花市（斗南站）</p>
+                    </div>
+                    
+                    <div class="border-l-4 border-secondary pl-4">
+                        <h4 class="font-bold text-lg mb-2">公交出行</h4>
+                        <p class="text-gray-700 mb-2">酒店门口有多个公交站点,线路丰富</p>
+                        <p class="text-gray-600 text-sm">主要线路:2路、23路、47路、58路、63路等</p>
+                    </div>
+                    
+                    <div class="border-l-4 border-accent pl-4">
+                        <h4 class="font-bold text-lg mb-2">出租车</h4>
+                        <p class="text-gray-700 mb-2">酒店门口可直接打车,昆明出租车起步价8元（3公里）</p>
+                        <p class="text-gray-600 text-sm">市区内景点打车费用一般在20-50元之间</p>
+                    </div>
+                    
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">网约车</h4>
+                        <p class="text-gray-700 mb-2">滴滴出行、高德打车等平台在昆明使用方便</p>
+                        <p class="text-gray-600 text-sm">价格与出租车相近,但更加便捷</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <a href="transportation.html" class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all-300">
+                        查看详细交通指南 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 地图预览 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">昆明地图</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">查看昆明主要景点分布,规划您的行程路线</p>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-5xl mx-auto">
+                <div class="p-4 bg-gray-100 border-b">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">昆明景点分布图</h3>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center">
+                                <span class="inline-block w-3 h-3 bg-primary rounded-full mr-1"></span>
+                                <span class="text-sm text-gray-600">计划游玩景点</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="inline-block w-3 h-3 bg-gray-400 rounded-full mr-1"></span>
+                                <span class="text-sm text-gray-600">周边核心景点</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div id="map-preview" class="w-full h-96 bg-gray-200 rounded-lg overflow-hidden">
+                        <!-- 地图预览图 -->
+                        <img src="https://p11-doubao-search-sign.byteimg.com/labis/50b1d9557cb9ef48cee02f6693192ea4~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=yLeVbZ4XdPZLzkvrB25zNrezBow%3D" alt="昆明地图预览" class="w-full h-full object-cover opacity-50">
+                        <div class="relative w-full h-full -mt-full">
+                            <!-- 地图标记 - 滇池 -->
+                            <div class="absolute top-[40%] right-[20%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:scale-110 transition-transform">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white">
+                                    <i class="fa fa-map-marker text-xs"></i>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white px-2 py-1 rounded text-xs shadow-md whitespace-nowrap">
+                                    滇池
+                                </div>
+                            </div>
+                            
+                            <!-- 地图标记 - 翠湖公园 -->
+                            <div class="absolute top-[30%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:scale-110 transition-transform">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white">
+                                    <i class="fa fa-map-marker text-xs"></i>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white px-2 py-1 rounded text-xs shadow-md whitespace-nowrap">
+                                    翠湖公园
+                                </div>
+                            </div>
+                            
+                            <!-- 地图标记 - 石林 -->
+                            <div class="absolute bottom-[20%] right-[10%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:scale-110 transition-transform">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white">
+                                    <i class="fa fa-map-marker text-xs"></i>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white px-2 py-1 rounded text-xs shadow-md whitespace-nowrap">
+                                    石林风景区
+                                </div>
+                            </div>
+        </div>
+    </section>
+
+    <!-- 底部区域 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">昆明旅游攻略</h3>
+                    <p class="text-gray-400">为您提供昆明6天5晚的完整游玩指南,包括景点介绍、美食推荐、交通路线和行程安排。</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速导航</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-all-300">首页</a></li>
+                        <li><a href="map.html" class="text-gray-400 hover:text-white transition-all-300">地图</a></li>
+                        <li><a href="attractions.html" class="text-gray-400 hover:text-white transition-all-300">景点</a></li>
+                        <li><a href="food.html" class="text-gray-400 hover:text-white transition-all-300">美食</a></li>
+                        <li><a href="transportation.html" class="text-gray-400 hover:text-white transition-all-300">交通</a></li>
+                        <li><a href="itinerary.html" class="text-gray-400 hover:text-white transition-all-300">行程</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">实用信息</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">天气信息</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">穿衣指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">购物指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">安全提示</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-gray-400 mr-2"></i>
+                            <a href="mailto:info@kunmingguide.com" class="text-gray-400 hover:text-white transition-all-300">info@kunmingguide.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-gray-400 mr-2"></i>
+                            <a href="tel:+86123456789" class="text-gray-400 hover:text-white transition-all-300">+86 123 456 789</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">昆明市官渡区环城南路</span>
+                        </li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2026 昆明旅游攻略. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

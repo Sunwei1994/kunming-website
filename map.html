@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昆明旅游地图 - 昆明6天5晚游玩攻略</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#EC4899',
+                        accent: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+        }
+    </style>
+    <style>
+        .map-wrapper { position: relative; }
+        .map-legend { margin-bottom: 10px; text-align: center; color: #666;}
+        /* 调整高德地图的信息窗体样式 */
+        .amap-info-content {
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+        .info-title {
+            font-weight: bold;
+            color: #2E8B57;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .info-link {
+            color: #FF7F50;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        #map {
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+    
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: '949d0f38a82c339347e86fe5047ec324',
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-800">昆明旅游攻略</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition-all-300">首页</a>
+                    <a href="map.html" class="text-primary font-medium hover:text-primary-dark transition-all-300">地图</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary transition-all-300">景点</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary transition-all-300">美食</a>
+                    <a href="transportation.html" class="text-gray-600 hover:text-primary transition-all-300">交通</a>
+                    <a href="itinerary.html" class="text-gray-600 hover:text-primary transition-all-300">行程</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="index.html" class="block py-2 text-gray-600 hover:text-primary">首页</a>
+                <a href="map.html" class="block py-2 text-primary font-medium">地图</a>
+                <a href="attractions.html" class="block py-2 text-gray-600 hover:text-primary">景点</a>
+                <a href="food.html" class="block py-2 text-gray-600 hover:text-primary">美食</a>
+                <a href="transportation.html" class="block py-2 text-gray-600 hover:text-primary">交通</a>
+                <a href="itinerary.html" class="block py-2 text-gray-600 hover:text-primary">行程</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="bg-primary text-white py-12">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl md:text-4xl font-bold text-center">昆明旅游地图</h1>
+                <p class="text-center mt-2">查看昆明主要景点分布，规划您的行程路线</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-bold mb-4 text-center">🗺️ 昆明及周边游玩地图</h2>
+            <p class="map-legend mb-6">💡 提示：点击蓝色标记可查看景点详情，红色标记为酒店位置。</p>
+            
+            <div class="map-wrapper">
+                <div id="map"></div>
+            </div>
+            
+            <!-- 景点列表 -->
+            <div class="mt-12">
+                <h3 class="text-xl font-bold mb-6 text-center">📋 景点列表</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="attraction-list">
+                    <!-- 景点列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 昆明旅游攻略 | 地图数据由高德地图提供</p>
+        </div>
+    </footer>
+
+    <!-- 高德地图API -->
+    <script src="https://webapi.amap.com/loader.js"></script>
+    
+    <script>
+        // 景点数据
+        const attractions = [
+            {
+                id: 1,
+                name: "滇池",
+                description: "云南最大的淡水湖，冬季有红嘴鸥",
+                address: "云南省昆明市西山区滇池路1318号",
+                price: "免费",
+                openingHours: "全天开放",
+                coordinates: [102.6742, 24.8766],
+                image: "https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1261042281285943322~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=%2Fh4djJ01LxJk2%2F2dNZyY8oRqMtw%3D",
+                isPlanned: true,
+                day: 2
+            },
+            {
+                id: 2,
+                name: "石林风景区",
+                description: "世界自然遗产，以奇特的喀斯特地貌闻名",
+                address: "云南省昆明市石林彝族自治县石林大道",
+                price: "¥130/人",
+                openingHours: "07:30-18:00",
+                coordinates: [103.3433, 24.8173],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/970532437091156038~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479981&x-signature=Layk5aqXZWrybvJACesp5fd5aGg%3D",
+                isPlanned: true,
+                day: 3
+            },
+            {
+                id: 3,
+                name: "翠湖公园",
+                description: "昆明市中心的核心景点，有城中之玉的美誉",
+                address: "昆明市五华区翠湖南路67号",
+                price: "免费",
+                openingHours: "06:00-22:00",
+                coordinates: [102.7122, 25.0454],
+                image: "https://p3-doubao-search-sign.byteimg.com/tos-cn-i-qvj2lq49k0/97d181e59769494484891ba4862b48a2~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=XJOcI80zqyp4nJEPMwyNl%2FCV9UE%3D",
+                isPlanned: true,
+                day: 1
+            },
+            {
+                id: 4,
+                name: "云南陆军讲武堂",
+                description: "中国近代著名军事院校，朱德、叶剑英等曾在此学习",
+                address: "昆明市五华区翠湖西路22号",
+                price: "免费",
+                openingHours: "09:00-17:00（周一闭馆）",
+                coordinates: [102.7092, 25.0426],
+                image: "https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/d9243348ff5742b4bc3f8b397c8dacd1~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=i3p6CJktIyqE0ZQstZdpkaUfOGo%3D",
+                isPlanned: true,
+                day: 1
+            },
+            {
+                id: 5,
+                name: "云南民族村",
+                description: "展示云南26个少数民族文化的主题公园",
+                address: "昆明市西山区滇池路1310号",
+                price: "¥90/人",
+                openingHours: "09:00-18:00",
+                coordinates: [102.6578, 24.8661],
+                image: "https://p26-doubao-search-sign.byteimg.com/labis/6b188d413349f9e8e941986a0c0ec5de~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=daqOnqNj5VqN9V1Yf%2Bcz6lBHl80%3D",
+                isPlanned: true,
+                day: 4
+            },
+            {
+                id: 6,
+                name: "斗南花市",
+                description: "亚洲最大的鲜花交易市场",
+                address: "昆明市呈贡区斗南镇",
+                price: "免费",
+                openingHours: "08:00-20:00",
+                coordinates: [102.7997, 24.8557],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/869978886091177994~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=8%2B1dp6gzjQtXSMjx9ZYb73KmVxE%3D",
+                isPlanned: true,
+                day: 5
+            },
+            {
+                id: 7,
+                name: "官渡古镇",
+                description: "千年古镇，保留明清建筑风格",
+                address: "昆明市官渡区官渡街道",
+                price: "免费",
+                openingHours: "全天开放",
+                coordinates: [102.7385, 24.9844],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: true,
+                day: 5
+            },
+            {
+                id: 8,
+                name: "西山风景区",
+                description: "形似睡美人，可俯瞰滇池全景",
+                address: "昆明市西山区西山公路",
+                price: "¥40/人",
+                openingHours: "09:00-17:00",
+                coordinates: [102.6383, 24.8616],
+                image: "https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1258287429121867786~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=hWLJOkOr%2FvHte%2FrYv6NyfBMbC2A%3D",
+                isPlanned: true,
+                day: 2
+            },
+            {
+                id: 9,
+                name: "云南省博物馆",
+                description: "了解云南历史文化的好去处",
+                address: "云南省昆明市官渡区广福路6393号",
+                price: "免费",
+                openingHours: "09:00-17:00（周一闭馆）",
+                coordinates: [102.7473, 24.9522],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: true,
+                day: 4
+            },
+            {
+                id: 10,
+                name: "圆通寺",
+                description: "昆明最古老的佛教寺院",
+                address: "昆明市五华区圆通街30号",
+                price: "¥5/人",
+                openingHours: "08:00-17:00",
+                coordinates: [102.7187, 25.0572],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: true,
+                day: 6
+            }
+        ];
+        
+        // 酒店位置
+        const hotel = {
+            name: "昆明火车站环城南路轻居酒店",
+            address: "云南省昆明市官渡区环城南路与北京路交叉口",
+            coordinates: [102.7318, 24.9897]
+        };
+        
+        // 初始化地图
+        AMapLoader.load({
+            "key": "13436096bf4068f5c4675e9b8fda97e9",
+            "version": "2.0",
+            "plugins": ["AMap.Scale", "AMap.ToolBar", "AMap.ControlBar", "AMap.InfoWindow"]
+        }).then((AMap) => {
+            // 创建地图实例
+            const map = new AMap.Map('map', {
+                viewMode: "3D",
+                zoom: 12,
+                center: hotel.coordinates,
+                zoomEnable: true,
+                dragEnable: true
+            });
+            
+            // 添加控件
+            map.addControl(new AMap.ToolBar());
+            map.addControl(new AMap.Scale());
+            map.addControl(new AMap.ControlBar());
+            
+            // 添加酒店标记
+            const hotelMarker = new AMap.Marker({
+                position: hotel.coordinates,
+                title: hotel.name,
+                icon: new AMap.Icon({
+                    size: new AMap.Size(36, 36),
+                    image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_r.png',
+                    imageSize: new AMap.Size(36, 36)
+                }),
+                offset: new AMap.Pixel(-18, -36)
+            });
+            
+            hotelMarker.setMap(map);
+            
+            // 添加酒店信息窗口
+            const hotelInfoWindow = new AMap.InfoWindow({
+                content: `
+                    <div class="p-3">
+                        <h3 class="info-title">${hotel.name}</h3>
+                        <p class="text-sm text-gray-600 mb-2">${hotel.address}</p>
+                        <div>
+                            <span class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded">住宿地点</span>
+                        </div>
+                    </div>
+                `,
+                size: new AMap.Size(300, 0),
+                offset: new AMap.Pixel(0, -36)
+            });
+            
+            hotelMarker.on('click', function() {
+                hotelInfoWindow.open(map, hotelMarker.getPosition());
+            });
+            
+            // 添加景点标记
+            attractions.forEach(attraction => {
+                // 创建标记
+                const marker = new AMap.Marker({
+                    position: attraction.coordinates,
+                    title: attraction.name,
+                    icon: new AMap.Icon({
+                        size: new AMap.Size(30, 30),
+                        image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png',
+                        imageSize: new AMap.Size(30, 30)
+                    }),
+                    offset: new AMap.Pixel(-15, -30)
+                });
+                
+                marker.setMap(map);
+                
+                // 添加信息窗口
+                const infoWindow = new AMap.InfoWindow({
+                    content: `
+                        <div class="p-3">
+                            <h3 class="info-title">${attraction.name}</h3>
+                            <p class="text-sm text-gray-600 mb-2">${attraction.address}</p>
+                            <p class="text-sm mb-2">${attraction.description}</p>
+                            <div class="mb-2 flex items-center justify-between">
+                                <span class="text-primary font-bold">${attraction.price}</span>
+                                <span class="text-sm text-gray-500">${attraction.openingHours}</span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">计划第${attraction.day}天游览</span>
+                            </div>
+                            <div class="text-center">
+                                <a href="attractions.html#${attraction.id}" class="info-link hover:underline">查看详情 →</a>
+                            </div>
+                        </div>
+                    `,
+                    size: new AMap.Size(300, 0),
+                    offset: new AMap.Pixel(0, -30)
+                });
+                
+                marker.on('click', function() {
+                    infoWindow.open(map, marker.getPosition());
+                });
+            });
+            
+            // 初始化景点列表
+            initAttractionList();
+        }).catch(e => {
+            console.error('地图加载失败:', e);
+            document.getElementById('map').innerHTML = `
+                <div class="flex flex-col items-center justify-center h-full">
+                    <i class="fa fa-exclamation-circle text-red-500 text-4xl mb-4"></i>
+                    <p class="text-lg text-red-500">地图加载失败，请检查网络连接或稍后重试</p>
+                </div>
+            `;
+        });
+        
+        // 初始化景点列表
+        function initAttractionList() {
+            const listContainer = document.getElementById('attraction-list');
+            
+            // 按天数排序景点
+            const sortedAttractions = [...attractions].sort((a, b) => a.day - b.day);
+            
+            // 添加景点卡片
+            sortedAttractions.forEach(attraction => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all-300';
+                card.innerHTML = `
+                    <div class="h-48 overflow-hidden">
+                        <img src="${attraction.image}" alt="${attraction.name}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">${attraction.name}</h3>
+                            <span class="bg-primary text-white text-xs px-2 py-1 rounded">第${attraction.day}天</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">${attraction.address}</p>
+                        <p class="text-gray-700 text-sm mb-3 line-clamp-2">${attraction.description}</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-primary font-bold">${attraction.price}</span>
+                            <span class="text-sm text-gray-500">${attraction.openingHours}</span>
+                        </div>
+                        <a href="attractions.html#${attraction.id}" class="block text-center bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-all-300">
+                            查看详情
+                        </a>
+                    </div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+        
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+                <p class="text-gray-600">正在加载地图...</p>
+            </div>
+        </div>
+        
+        <!-- 地图容器 -->
+        <div id="map-container" class="w-full h-[600px] rounded-xl shadow-lg overflow-hidden hidden"></div>
+        
+        <!-- 地图说明 -->
+        <div class="mt-8 bg-white rounded-xl shadow-md p-6">
+            <h2 class="text-xl font-bold mb-4">地图说明</h2>
+            <div class="flex flex-wrap gap-6">
+                <div class="flex items-center">
+                    <span class="inline-block w-6 h-6 bg-red-500 rounded-full mr-2 flex items-center justify-center text-white">
+                        <i class="fa fa-hotel text-xs"></i>
+                    </span>
+                    <span>住宿酒店</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="inline-block w-6 h-6 bg-primary rounded-full mr-2 flex items-center justify-center text-white">
+                        <i class="fa fa-map-marker text-xs"></i>
+                    </span>
+                    <span>计划游览景点</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="inline-block w-6 h-6 bg-gray-400 rounded-full mr-2 flex items-center justify-center text-white">
+                        <i class="fa fa-map-marker text-xs"></i>
+                    </span>
+                    <span>周边核心景点</span>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-600">点击地图上的标记可查看详细信息，拖动地图可浏览更多区域。</p>
+        </div>
+        
+        <!-- 景点列表 -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-6">景点列表</h2>
+            
+            <!-- 计划游览景点 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="inline-block w-4 h-4 bg-primary rounded-full mr-2"></span>
+                    计划游览景点
+                </h3>
+                <div id="planned-attractions" class="space-y-4">
+                    <!-- 计划景点将通过JavaScript动态添加 -->
+                </div>
+            </div>
+            
+            <!-- 周边核心景点 -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2"></span>
+                    周边核心景点
+                </h3>
+                <div id="other-attractions" class="space-y-4">
+                    <!-- 其他景点将通过JavaScript动态添加 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部区域 -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">昆明旅游攻略</h3>
+                    <p class="text-gray-400">为您提供昆明6天5晚的完整游玩指南，包括景点介绍、美食推荐、交通路线和行程安排。</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速导航</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-all-300">首页</a></li>
+                        <li><a href="map.html" class="text-gray-400 hover:text-white transition-all-300">地图</a></li>
+                        <li><a href="attractions.html" class="text-gray-400 hover:text-white transition-all-300">景点</a></li>
+                        <li><a href="food.html" class="text-gray-400 hover:text-white transition-all-300">美食</a></li>
+                        <li><a href="transportation.html" class="text-gray-400 hover:text-white transition-all-300">交通</a></li>
+                        <li><a href="itinerary.html" class="text-gray-400 hover:text-white transition-all-300">行程</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">实用信息</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">天气信息</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">穿衣指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">购物指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">安全提示</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-gray-400 mr-2"></i>
+                            <a href="mailto:info@kunmingguide.com" class="text-gray-400 hover:text-white transition-all-300">info@kunmingguide.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-gray-400 mr-2"></i>
+                            <a href="tel:+86123456789" class="text-gray-400 hover:text-white transition-all-300">+86 123 456 789</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">昆明市官渡区环城南路</span>
+                        </li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2026 昆明旅游攻略. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昆明景点介绍 - 昆明6天5晚游玩攻略</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#EC4899',
+                        accent: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .bg-gradient-overlay {
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-800">昆明旅游攻略</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition-all-300">首页</a>
+                    <a href="map.html" class="text-gray-600 hover:text-primary transition-all-300">地图</a>
+                    <a href="attractions.html" class="text-primary font-medium hover:text-primary-dark transition-all-300">景点</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary transition-all-300">美食</a>
+                    <a href="transportation.html" class="text-gray-600 hover:text-primary transition-all-300">交通</a>
+                    <a href="itinerary.html" class="text-gray-600 hover:text-primary transition-all-300">行程</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="index.html" class="block py-2 text-gray-600 hover:text-primary">首页</a>
+                <a href="map.html" class="block py-2 text-gray-600 hover:text-primary">地图</a>
+                <a href="attractions.html" class="block py-2 text-primary font-medium">景点</a>
+                <a href="food.html" class="block py-2 text-gray-600 hover:text-primary">美食</a>
+                <a href="transportation.html" class="block py-2 text-gray-600 hover:text-primary">交通</a>
+                <a href="itinerary.html" class="block py-2 text-gray-600 hover:text-primary">行程</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="bg-primary text-white py-12">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl md:text-4xl font-bold text-center">昆明景点介绍</h1>
+                <p class="text-center mt-2">探索昆明的自然美景和人文景观</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 景点分类标签 -->
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button class="attraction-filter px-4 py-2 rounded-full bg-primary text-white" data-filter="all">全部景点</button>
+            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="planned">计划游览</button>
+            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day1">第1天</button>
+            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day2">第2天</button>
+            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day3">第3天</button>
+            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day4">第4天</button>
+            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day5">第5天</button>
+            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day6">第6天</button>
+        </div>
+
+        <!-- 景点列表 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="attractions-container">
+            <!-- 滇池 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="1" data-planned="true" data-day="2">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1261042281285943322~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=%2Fh4djJ01LxJk2%2F2dNZyY8oRqMtw%3D" alt="滇池" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第2天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">滇池</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.7分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">云南最大的淡水湖,有"高原明珠"之称。冬季有红嘴鸥从西伯利亚飞来越冬,是昆明的标志性景点。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">免费</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="1">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 石林风景区 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="2" data-planned="true" data-day="3">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/970532437091156038~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479981&x-signature=Layk5aqXZWrybvJACesp5fd5aGg%3D" alt="石林风景区" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第3天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">石林风景区</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.7分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">世界自然遗产,以奇特的喀斯特地貌闻名,有"天下第一奇观"之称。2.7亿年前曾是海洋,如今形成壮观的石柱群。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥130/人</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="2">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 翠湖公园 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="3" data-planned="true" data-day="1">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-qvj2lq49k0/97d181e59769494484891ba4862b48a2~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=XJOcI80zqyp4nJEPMwyNl%2FCV9UE%3D" alt="翠湖公园" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第1天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">翠湖公园</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.8分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">昆明市中心的核心景点,有"城中之玉"的美誉。夏季荷花盛开,冬季红嘴鸥聚集,周边有云南大学、文化巷等文艺街区。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">免费</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="3">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 云南陆军讲武堂 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="4" data-planned="true" data-day="1">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/d9243348ff5742b4bc3f8b397c8dacd1~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=i3p6CJktIyqE0ZQstZdpkaUfOGo%3D" alt="云南陆军讲武堂" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第1天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">云南陆军讲武堂</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.2分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">中国近代著名军事院校,朱德、叶剑英等曾在此学习,建筑风格独特,免费开放。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">免费</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="4">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 云南民族村 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="5" data-planned="true" data-day="4">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/labis/6b188d413349f9e8e941986a0c0ec5de~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=daqOnqNj5VqN9V1Yf%2Bcz6lBHl80%3D" alt="云南民族村" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第4天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">云南民族村</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.3分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">展示云南26个少数民族文化的主题公园,每日有民俗表演,4-10月可体验泼水节等特色活动。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥90/人</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="5">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 斗南花市 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="6" data-planned="true" data-day="5">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/869978886091177994~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=8%2B1dp6gzjQtXSMjx9ZYb73KmVxE%3D" alt="斗南花市" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第5天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">斗南花市</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.9分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">亚洲最大的鲜花交易市场,每天交易量巨大,可低价购买鲜花,2025年新增"鲜花主题馆",适合拍照和体验花艺。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">免费</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="6">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 官渡古镇 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="7" data-planned="true" data-day="5">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="官渡古镇" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第5天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">官渡古镇</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.1分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">千年古镇,保留明清建筑风格,可登妙湛寺金刚塔,体验乌铜走银等非遗工艺。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">免费</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="7">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 西山风景区 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="8" data-planned="true" data-day="2">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1258287429121867786~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=hWLJOkOr%2FvHte%2FrYv6NyfBMbC2A%3D" alt="西山风景区" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第2天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">西山风景区</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.5分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">形似"睡美人",可徒步或乘缆车登顶,俯瞰滇池全景,龙门石窟的摩崖石刻和夜景灯光秀值得一看。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥40/人</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="8">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 云南省博物馆 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="9" data-planned="true" data-day="4">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="云南省博物馆" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第4天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">云南省博物馆</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.6分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">了解云南历史文化的好去处,馆藏丰富,展示了云南各民族的历史文化和艺术成就。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">免费</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="9">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 圆通寺 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="10" data-planned="true" data-day="6">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="圆通寺" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        第6天
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">圆通寺</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.0分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">昆明最古老的佛教寺院,融合汉传、藏传、南传佛教,寺内园林景观独特。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥5/人</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="10">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 大观公园 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="11" data-planned="false">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="大观公园" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-gray-400 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        周边景点
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">大观公园</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.7分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">滇池北畔的优美公园,园内古迹众多,尤其大观楼更是闻名全国。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥20/人</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="11">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 云南野生动物园 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="12" data-planned="false">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="云南野生动物园" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-gray-400 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        周边景点
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">云南野生动物园</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.7分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">近距离观赏珍稀动物,是亲子游玩的好去处。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥100/人</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="12">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 七彩云南欢乐世界 -->
+            <div class="attraction-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="13" data-planned="false">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="七彩云南欢乐世界" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-gray-400 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        周边景点
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">七彩云南欢乐世界</h3>
+                    <div class="flex items-center mb-2">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <span class="text-gray-600 text-sm ml-2">4.7分</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">多主题的娱乐中心,有各种刺激的游乐设施,适合全家游玩。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥180/人</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="13">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 景点详情模态框 -->
+    <div id="attraction-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" id="modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none">
+                <i class="fa fa-times text-2xl"></i>
+            </button>
+            <div id="modal-content" class="p-6">
+                <!-- 模态框内容将通过JavaScript动态添加 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部区域 -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">昆明旅游攻略</h3>
+                    <p class="text-gray-400">为您提供昆明6天5晚的完整游玩指南,包括景点介绍、美食推荐、交通路线和行程安排。</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速导航</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-all-300">首页</a></li>
+                        <li><a href="map.html" class="text-gray-400 hover:text-white transition-all-300">地图</a></li>
+                        <li><a href="attractions.html" class="text-gray-400 hover:text-white transition-all-300">景点</a></li>
+                        <li><a href="food.html" class="text-gray-400 hover:text-white transition-all-300">美食</a></li>
+                        <li><a href="transportation.html" class="text-gray-400 hover:text-white transition-all-300">交通</a></li>
+                        <li><a href="itinerary.html" class="text-gray-400 hover:text-white transition-all-300">行程</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">实用信息</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">天气信息</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">穿衣指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">购物指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">安全提示</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-gray-400 mr-2"></i>
+                            <a href="mailto:info@kunmingguide.com" class="text-gray-400 hover:text-white transition-all-300">info@kunmingguide.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-gray-400 mr-2"></i>
+                            <a href="tel:+86123456789" class="text-gray-400 hover:text-white transition-all-300">+86 123 456 789</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">昆明市官渡区环城南路</span>
+                        </li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2026 昆明旅游攻略. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 景点数据
+        const attractions = [
+            {
+                id: 1,
+                name: "滇池",
+                description: "云南最大的淡水湖,有高原明珠之称。冬季有红嘴鸥从西伯利亚飞来越冬,是昆明的标志性景点。",
+                address: "云南省昆明市西山区滇池路1318号",
+                price: "免费",
+                openingHours: "全天开放",
+                coordinates: [102.6742, 24.8766],
+                image: "https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1261042281285943322~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=%2Fh4djJ01LxJk2%2F2dNZyY8oRqMtw%3D",
+                isPlanned: true,
+                day: 2,
+                details: `
+                    <p class="mb-4">滇池,亦称昆明湖、昆明池、滇南泽、滇海。在昆明市西南,有盘龙江等河流注入,湖面海拔1886米,面积330平方千米,云南省最大的淡水湖,有"高原明珠"之称。</p>
+                    <p class="mb-4">滇池风光秀丽,为中国国家级旅游度假区。四周有云南民族村、云南民族博物馆、西山华亭寺、太华寺、三清阁、龙门、筇竹寺、大观楼及晋宁盘龙寺、郑和公园等风景区。度假区占地面积18平方公里。</p>
+                    <p class="mb-4">冬季,滇池是红嘴鸥的越冬地。每年11月至次年3月,成千上万只红嘴鸥从西伯利亚飞来滇池越冬,成为昆明冬季的一道靓丽风景线。游客可以在海埂大坝等地投喂红嘴鸥,与这些可爱的小精灵近距离接触。</p>
+                    <p class="mb-4">滇池周边有多个观景点,其中西山俯瞰滇池的视角最佳,可以将整个滇池尽收眼底。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>地铁：乘坐地铁5号线到海埂大坝站下车</li>
+                        <li>公交：乘坐24路、44路、73路、94路、135路等公交车到海埂大坝站下车</li>
+                        <li>打车：从酒店打车约20分钟,费用约30元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>最佳游览时间：冬季（11月-次年3月）可以观赏红嘴鸥</li>
+                        <li>建议游览时长：2-3小时</li>
+                        <li>可以选择乘船游湖,从不同角度欣赏滇池美景</li>
+                        <li>海埂大坝是观赏红嘴鸥的最佳地点</li>
+                        <li>傍晚时分,夕阳西下,滇池的景色最美</li>
+                    </ul>
+                `,
+                transport: {
+                    subway: "地铁5号线到海埂大坝站",
+                    bus: "24路、44路、73路到海埂大坝站",
+                    taxi: "约20分钟,费用约30元"
+                }
+            },
+            {
+                id: 2,
+                name: "石林风景区",
+                description: "世界自然遗产,以奇特的喀斯特地貌闻名,有天下第一奇观之称。2.7亿年前曾是海洋,如今形成壮观的石柱群。",
+                address: "云南省昆明市石林彝族自治县石林大道",
+                price: "¥130/人",
+                openingHours: "07:30-18:00",
+                coordinates: [103.3433, 24.8173],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/970532437091156038~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479981&x-signature=Layk5aqXZWrybvJACesp5fd5aGg%3D",
+                isPlanned: true,
+                day: 3,
+                details: `
+                    <p class="mb-4">石林风景区位于云南省昆明市石林彝族自治县境内,距省会昆明市78公里,是世界自然遗产、世界地质公园、国家AAAAA级旅游景区、国家重点风景名胜区。</p>
+                    <p class="mb-4">石林形成于2.7亿年前,是世界喀斯特地貌的精华,拥有世界上喀斯特地貌演化历史最久远、分布面积最广、类型齐全、形态独特的古生代岩溶地貌群落,被誉为"天下第一奇观"。</p>
+                    <p class="mb-4">石林风景区主要由大石林、小石林、乃古石林、长湖、月湖、芝云洞、奇风洞等7个风景片区组成。景区内石柱、石笋、石芽、石钟乳等喀斯特地貌形态各异,拟人似物,栩栩如生。</p>
+                    <p class="mb-4">其中,大石林是石林的核心景区,面积约8平方公里,游览路线长约5公里。这里的石柱高大密集,最高的石柱达40余米。小石林与大石林相邻,面积约3平方公里,这里的石柱相对较小,但形态更加优美,著名的"阿诗玛"石像就位于此处。</p>
+                    <p class="mb-4">2025年,石林风景区新增"阿诗玛沉浸式剧场",通过现代科技手段,生动展现彝族撒尼人的民间传说和文化。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>汽车：从昆明东部汽车客运站乘坐前往石林的大巴,车程约1.5小时,票价约30元</li>
+                        <li>高铁：从昆明南站乘坐高铁到石林西站,车程约25分钟,票价约20元,然后转乘公交或打车前往景区</li>
+                        <li>包车：从酒店包车前往,费用约300-400元/天</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：4-5小时</li>
+                        <li>景区内有观光车,票价25元/人,可以节省体力</li>
+                        <li>建议请导游或使用景区语音导览,了解更多关于石林的历史和文化</li>
+                        <li>景区内餐饮价格较高,建议自带干粮或在景区外就餐</li>
+                        <li>夏季紫外线强,注意防晒</li>
+                    </ul>
+                `,
+                transport: {
+                    bus: "东部汽车客运站乘坐前往石林的大巴,车程约1.5小时,票价约30元",
+                    highSpeedRail: "昆明南站乘坐高铁到石林西站,车程约25分钟,票价约20元",
+                    taxi: "包车前往,费用约300-400元/天"
+                }
+            },
+            {
+                id: 3,
+                name: "翠湖公园",
+                description: "昆明市中心的核心景点,有城中之玉的美誉。夏季荷花盛开,冬季红嘴鸥聚集,周边有云南大学、文化巷等文艺街区。",
+                address: "昆明市五华区翠湖南路67号",
+                price: "免费",
+                openingHours: "06:00-22:00",
+                coordinates: [102.7122, 25.0454],
+                image: "https://p3-doubao-search-sign.byteimg.com/tos-cn-i-qvj2lq49k0/97d181e59769494484891ba4862b48a2~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=XJOcI80zqyp4nJEPMwyNl%2FCV9UE%3D",
+                isPlanned: true,
+                day: 1,
+                details: `
+                    <p class="mb-4">翠湖公园位于昆明市五华区,是昆明市中心的核心景点,有"城中之玉"的美誉。公园占地面积21公顷,其中水面面积15公顷。</p>
+                    <p class="mb-4">翠湖公园始建于明朝洪武年间,最初是滇池的一个沼泽水湾,后来经过多次疏浚和扩建,成为现在的公园。公园内湖水清澈,绿树成荫,亭台楼阁点缀其间,环境十分优美。</p>
+                    <p class="mb-4">夏季,翠湖公园内荷花盛开,香气四溢,是赏荷的好去处。冬季,成千上万只红嘴鸥从西伯利亚飞来翠湖越冬,成为昆明冬季的一道靓丽风景线。游客可以在湖边投喂红嘴鸥,与这些可爱的小精灵近距离接触。</p>
+                    <p class="mb-4">翠湖公园周边有云南大学、文化巷、文林街等文艺街区,是昆明文化氛围最浓厚的地区之一。游客可以在游览完翠湖公园后,前往这些地方感受昆明的文艺气息。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>地铁：乘坐地铁2号线到五一路站下车,步行约10分钟即可到达</li>
+                        <li>公交：乘坐1路、85路、100路、101路等公交车到翠湖公园站下车</li>
+                        <li>打车：从酒店打车约15分钟,费用约20元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：1-2小时</li>
+                        <li>冬季（11月-次年3月）是观赏红嘴鸥的最佳时间</li>
+                        <li>夏季（6月-8月）是赏荷的最佳时间</li>
+                        <li>公园内有多个茶室,可以品尝云南特色的普洱茶</li>
+                        <li>建议早上或傍晚游览,此时光线最美,游客也相对较少</li>
+                    </ul>
+                `,
+                transport: {
+                    subway: "地铁2号线到五一路站,步行约10分钟",
+                    bus: "1路、85路、100路、101路到翠湖公园站",
+                    taxi: "约15分钟,费用约20元"
+                }
+            },
+            {
+                id: 4,
+                name: "云南陆军讲武堂",
+                description: "中国近代著名军事院校,朱德、叶剑英等曾在此学习,建筑风格独特,免费开放。",
+                address: "昆明市五华区翠湖西路22号",
+                price: "免费",
+                openingHours: "09:00-17:00（周一闭馆）",
+                coordinates: [102.7092, 25.0426],
+                image: "https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/d9243348ff5742b4bc3f8b397c8dacd1~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=i3p6CJktIyqE0ZQstZdpkaUfOGo%3D",
+                isPlanned: true,
+                day: 1,
+                details: `
+                    <p class="mb-4">云南陆军讲武堂是中国近代史上著名的军事院校,与保定陆军军官学校、黄埔军校并称为中国近代三大军校。</p>
+                    <p class="mb-4">云南陆军讲武堂始建于1909年,1912年正式开学,1935年停办。在其存在的23年中,培养了大批军事人才,其中包括朱德、叶剑英等中国共产党和中华人民共和国的重要领导人。</p>
+                    <p class="mb-4">讲武堂的建筑风格独特,采用了中西合璧的建筑风格,主体建筑为走马转角楼,呈正方形,中间为操场。建筑为土、木、石结构,红墙黄瓦,气势恢宏。</p>
+                    <p class="mb-4">现在的云南陆军讲武堂已被改建为云南陆军讲武堂历史博物馆,免费向公众开放。博物馆内展示了讲武堂的历史沿革、重要人物、历史事件等内容,是了解中国近代军事历史的重要场所。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>地铁：乘坐地铁2号线到五一路站下车,步行约10分钟即可到达</li>
+                        <li>公交：乘坐1路、85路、100路、101路等公交车到翠湖公园站下车,步行约5分钟即可到达</li>
+                        <li>打车：从酒店打车约15分钟,费用约20元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：1小时</li>
+                        <li>博物馆周一闭馆,请注意安排时间</li>
+                        <li>博物馆内有免费的讲解服务,可以更好地了解讲武堂的历史</li>
+                        <li>讲武堂与翠湖公园相邻,可以安排在同一天游览</li>
+                    </ul>
+                `,
+                transport: {
+                    subway: "地铁2号线到五一路站,步行约10分钟",
+                    bus: "1路、85路、100路、101路到翠湖公园站,步行约5分钟",
+                    taxi: "约15分钟,费用约20元"
+                }
+            },
+            {
+                id: 5,
+                name: "云南民族村",
+                description: "展示云南26个少数民族文化的主题公园,每日有民俗表演,4-10月可体验泼水节等特色活动。",
+                address: "昆明市西山区滇池路1310号",
+                price: "¥90/人",
+                openingHours: "09:00-18:00",
+                coordinates: [102.6578, 24.8661],
+                image: "https://p26-doubao-search-sign.byteimg.com/labis/6b188d413349f9e8e941986a0c0ec5de~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=daqOnqNj5VqN9V1Yf%2Bcz6lBHl80%3D",
+                isPlanned: true,
+                day: 4,
+                details: `
+                    <p class="mb-4">云南民族村位于昆明市西山区滇池路,是一个展示云南26个少数民族文化的主题公园。公园占地面积约89公顷,于1992年正式开放。</p>
+                    <p class="mb-4">云南民族村内建有26个民族的村寨,每个村寨都按照各民族的传统建筑风格建造,并展示了各民族的生产生活方式、宗教信仰、文化艺术等内容。游客可以在这里了解云南各少数民族的文化特色,体验不同民族的风俗习惯。</p>
+                    <p class="mb-4">民族村内每日有丰富多彩的民俗表演,包括彝族的"火把节"、傣族的"泼水节"、白族的"三月街"等。4-10月,游客还可以参与泼水节等特色活动,亲身体验少数民族的节日氛围。</p>
+                    <p class="mb-4">民族村内还有云南民族博物馆,展示了云南各民族的历史文物、手工艺品、服饰等,是了解云南民族文化的重要场所。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>公交：乘坐24路、44路、73路、94路、135路等公交车到云南民族村站下车</li>
+                        <li>打车：从酒店打车约25分钟,费用约35元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：3-4小时</li>
+                        <li>公园内有观光车,票价30元/人,可以节省体力</li>
+                        <li>建议观看园内的民俗表演,表演时间通常在上午11点和下午3点</li>
+                        <li>4-10月是体验泼水节的最佳时间</li>
+                        <li>民族村与滇池相邻,可以安排在同一天游览</li>
+                    </ul>
+                `,
+                transport: {
+                    bus: "24路、44路、73路、94路、135路到云南民族村站",
+                    taxi: "约25分钟,费用约35元"
+                }
+            },
+            {
+                id: 6,
+                name: "斗南花市",
+                description: "亚洲最大的鲜花交易市场,每天交易量巨大,可低价购买鲜花,2025年新增鲜花主题馆,适合拍照和体验花艺。",
+                address: "昆明市呈贡区斗南镇",
+                price: "免费",
+                openingHours: "08:00-20:00",
+                coordinates: [102.7997, 24.8557],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/869978886091177994~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=8%2B1dp6gzjQtXSMjx9ZYb73KmVxE%3D",
+                isPlanned: true,
+                day: 5,
+                details: `
+                    <p class="mb-4">斗南花市位于昆明市呈贡区斗南镇,是亚洲最大的鲜花交易市场,也是中国最大的花卉批发市场。</p>
+                    <p class="mb-4">斗南花市始建于1984年,经过多年的发展,现已成为一个集花卉种植、加工、销售、科研、旅游为一体的综合性花卉产业基地。市场内每天交易量巨大,有来自全国各地的花卉经销商和采购商。</p>
+                    <p class="mb-4">斗南花市的鲜花种类繁多,包括玫瑰、百合、康乃馨、郁金香等国内外知名花卉。由于交易量巨大,这里的鲜花价格相对较低,是购买鲜花的好去处。</p>
+                    <p class="mb-4">2025年,斗南花市新增"鲜花主题馆",通过现代化的展示手段,展示了花卉的种植、加工、销售等全过程,并提供花艺体验、花卉DIY等活动,适合拍照和体验花艺。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>地铁：乘坐地铁1号线到斗南站下车,步行约10分钟即可到达</li>
+                        <li>公交：乘坐C6路、C7路、C14路等公交车到斗南花市站下车</li>
+                        <li>打车：从酒店打车约30分钟,费用约40元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：2-3小时</li>
+                        <li>花市的早市（凌晨4点-上午10点）是最热闹的时候,可以看到大量的花卉交易</li>
+                        <li>如果想购买鲜花,建议下午或傍晚前往,此时价格更加便宜</li>
+                        <li>花市内有包装服务,可以将购买的鲜花包装好带走</li>
+                        <li>鲜花主题馆内有专业的花艺师,可以学习花艺知识</li>
+                    </ul>
+                `,
+                transport: {
+                    subway: "地铁1号线到斗南站,步行约10分钟",
+                    bus: "C6路、C7路、C14路到斗南花市站",
+                    taxi: "约30分钟,费用约40元"
+                }
+            },
+            {
+                id: 7,
+                name: "官渡古镇",
+                description: "千年古镇,保留明清建筑风格,可登妙湛寺金刚塔,体验乌铜走银等非遗工艺。",
+                address: "昆明市官渡区官渡街道",
+                price: "免费",
+                openingHours: "全天开放",
+                coordinates: [102.7385, 24.9844],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: true,
+                day: 5,
+                details: `
+                    <p class="mb-4">官渡古镇位于昆明市官渡区官渡街道,是一个有着千年历史的古镇。古镇始建于唐代,盛于明清,是昆明地区重要的历史文化名镇。</p>
+                    <p class="mb-4">官渡古镇保留了大量的明清时期的建筑,包括寺庙、民居、商铺等。其中,最著名的是妙湛寺金刚塔,这是一座建于明代的佛塔,是中国现存最早的金刚宝座式塔之一,也是官渡古镇的标志性建筑。</p>
+                    <p class="mb-4">古镇内还有许多非物质文化遗产,如乌铜走银、官渡粑粑制作技艺等。游客可以在这里体验这些传统工艺,了解昆明的传统文化。</p>
+                    <p class="mb-4">官渡古镇也是昆明著名的美食聚集地,有许多当地特色小吃,如官渡粑粑、豌豆粉、米线等。游客可以在这里品尝正宗的昆明美食。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>地铁：乘坐地铁1号线到星耀路站下车,步行约15分钟即可到达</li>
+                        <li>公交：乘坐165路、174路、185路等公交车到官渡古镇站下车</li>
+                        <li>打车：从酒店打车约15分钟,费用约20元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：2-3小时</li>
+                        <li>古镇全天开放,但部分景点和商铺有营业时间限制</li>
+                        <li>建议品尝官渡古镇的特色小吃,如官渡粑粑、豌豆粉等</li>
+                        <li>妙湛寺金刚塔是古镇的标志性建筑,不要错过</li>
+                        <li>古镇内有许多手工艺品店,可以购买一些特色纪念品</li>
+                    </ul>
+                `,
+                transport: {
+                    subway: "地铁1号线到星耀路站,步行约15分钟",
+                    bus: "165路、174路、185路到官渡古镇站",
+                    taxi: "约15分钟,费用约20元"
+                }
+            },
+            {
+                id: 8,
+                name: "西山风景区",
+                description: "形似睡美人,可徒步或乘缆车登顶,俯瞰滇池全景,龙门石窟的摩崖石刻和夜景灯光秀值得一看。",
+                address: "昆明市西山区西山公路",
+                price: "¥40/人",
+                openingHours: "09:00-17:00",
+                coordinates: [102.6383, 24.8616],
+                image: "https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1258287429121867786~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=hWLJOkOr%2FvHte%2FrYv6NyfBMbC2A%3D",
+                isPlanned: true,
+                day: 2,
+                details: `
+                    <p class="mb-4">西山风景区位于昆明市西山区,距市区约15公里,是昆明著名的风景名胜区。西山因形似"睡美人"而得名,是昆明的标志性景观之一。</p>
+                    <p class="mb-4">西山风景区占地面积约88平方公里,由华亭山、太华山、罗汉山等山峰组成。景区内林木葱茏,景色秀丽,有华亭寺、太华寺、三清阁、龙门等众多景点。</p>
+                    <p class="mb-4">其中,龙门是西山风景区的核心景点,位于西山的罗汉崖上,是一组由人工开凿的石窟建筑群。龙门石窟始建于清代乾隆年间,历时72年才完成。石窟内有大量的摩崖石刻和雕塑,工艺精湛,是中国古代石窟艺术的杰作。</p>
+                    <p class="mb-4">从西山俯瞰滇池,视野开阔,景色壮观,是观赏滇池全景的最佳地点。特别是在傍晚时分,夕阳西下,滇池波光粼粼,景色格外美丽。</p>
+                    <p class="mb-4">近年来,西山风景区还推出了夜景灯光秀,通过现代灯光技术,将西山的自然景观和人文景观融为一体,呈现出独特的视觉效果。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>公交：乘坐6路、51路、94路等公交车到西山风景区站下车</li>
+                        <li>缆车：从海埂大坝乘坐缆车前往西山,单程票价30元/人</li>
+                        <li>打车：从酒店打车约25分钟,费用约35元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：3-4小时</li>
+                        <li>可以选择徒步或乘缆车登顶,徒步需要约1.5小时,缆车约10分钟</li>
+                        <li>龙门石窟是必游景点,门票包含在景区门票内</li>
+                        <li>建议下午前往,可以欣赏日落和夜景灯光秀</li>
+                        <li>景区内有多个茶室和餐厅,可以休息和用餐</li>
+                    </ul>
+                `,
+                transport: {
+                    bus: "6路、51路、94路到西山风景区站",
+                    cableCar: "从海埂大坝乘坐缆车前往西山,单程票价30元/人",
+                    taxi: "约25分钟,费用约35元"
+                }
+            },
+            {
+                id: 9,
+                name: "云南省博物馆",
+                description: "了解云南历史文化的好去处,馆藏丰富,展示了云南各民族的历史文化和艺术成就。",
+                address: "云南省昆明市官渡区广福路6393号",
+                price: "免费",
+                openingHours: "09:00-17:00（周一闭馆）",
+                coordinates: [102.7473, 24.9522],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: true,
+                day: 4,
+                details: `
+                    <p class="mb-4">云南省博物馆位于昆明市官渡区广福路,是云南省最大的综合性博物馆,也是国家一级博物馆。博物馆始建于1951年,新馆于2015年正式开放。</p>
+                    <p class="mb-4">云南省博物馆馆藏丰富,收藏了大量的历史文物、民族文物、革命文物和自然标本等,总数超过20万件。其中,最著名的是古滇国青铜器、大理国文物、少数民族文物等。</p>
+                    <p class="mb-4">博物馆内设有多个常设展览,包括"云南历史文明陈列"、"云南民族文化陈列"、"云南佛教艺术陈列"等。这些展览通过丰富的文物和现代化的展示手段,全面展示了云南的历史文化和民族风情。</p>
+                    <p class="mb-4">博物馆还经常举办临时展览,展示国内外的优秀文化遗产和艺术作品。此外,博物馆还提供讲座、研讨会、文化体验等活动,是了解云南历史文化的重要场所。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>地铁：乘坐地铁1号线到福德站下车,步行约15分钟即可到达</li>
+                        <li>公交：乘坐165路、174路、185路等公交车到云南省博物馆站下车</li>
+                        <li>打车：从酒店打车约15分钟,费用约20元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：2-3小时</li>
+                        <li>博物馆周一闭馆,请注意安排时间</li>
+                        <li>博物馆提供免费的讲解服务,可以更好地了解展览内容</li>
+                        <li>博物馆内有咖啡厅和纪念品商店,可以休息和购买纪念品</li>
+                        <li>建议提前在官网预约参观,避免人流高峰</li>
+                    </ul>
+                `,
+                transport: {
+                    subway: "地铁1号线到福德站,步行约15分钟",
+                    bus: "165路、174路、185路到云南省博物馆站",
+                    taxi: "约15分钟,费用约20元"
+                }
+            },
+            {
+                id: 10,
+                name: "圆通寺",
+                description: "昆明最古老的佛教寺院,融合汉传、藏传、南传佛教,寺内园林景观独特。",
+                address: "昆明市五华区圆通街30号",
+                price: "¥5/人",
+                openingHours: "08:00-17:00",
+                coordinates: [102.7187, 25.0572],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: true,
+                day: 6,
+                details: `
+                    <p class="mb-4">圆通寺位于昆明市五华区圆通街,是昆明最古老的佛教寺院,始建于唐代南诏时期,已有1200多年的历史。</p>
+                    <p class="mb-4">圆通寺是中国少见的同时融合了汉传佛教、藏传佛教和南传佛教的寺院。寺内建筑风格独特,既有汉族传统的殿堂楼阁,又有藏族风格的喇嘛塔,还有傣族风格的佛殿。</p>
+                    <p class="mb-4">圆通寺的园林景观也非常独特,寺内有一个放生池,池中有一座八角亭,名为"圆通胜境"。池周围种植了大量的古树名木,环境十分幽静。</p>
+                    <p class="mb-4">每年农历正月十五,圆通寺会举办传统的"圆通灯会",吸引大量的游客和信徒前来参观和朝拜。此外,每年的佛诞节、盂兰盆节等佛教节日,寺内也会举行相应的法会活动。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>地铁：乘坐地铁2号线到穿心鼓楼站下车,步行约10分钟即可到达</li>
+                        <li>公交：乘坐23路、47路、59路等公交车到圆通寺站下车</li>
+                        <li>打车：从酒店打车约15分钟,费用约20元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：1小时</li>
+                        <li>寺内香火旺盛,建议避开初一、十五等佛教节日的人流高峰</li>
+                        <li>寺内有素斋供应,可以品尝正宗的佛教素斋</li>
+                        <li>圆通寺与圆通山相邻,可以安排在同一天游览</li>
+                    </ul>
+                `,
+                transport: {
+                    subway: "地铁2号线到穿心鼓楼站,步行约10分钟",
+                    bus: "23路、47路、59路到圆通寺站",
+                    taxi: "约15分钟,费用约20元"
+                }
+            },
+            {
+                id: 11,
+                name: "大观公园",
+                description: "滇池北畔的优美公园,园内古迹众多,尤其大观楼更是闻名全国。",
+                address: "云南省昆明市西山区大观路284号",
+                price: "¥20/人",
+                openingHours: "07:00-19:00",
+                coordinates: [102.6833, 25.0139],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: false,
+                details: `
+                    <p class="mb-4">大观公园位于昆明市西山区大观路,滇池北畔,是一个有着悠久历史的公园。公园始建于清代康熙年间,是昆明著名的风景名胜区。</p>
+                    <p class="mb-4">大观公园内古迹众多,其中最著名的是大观楼。大观楼始建于清代康熙年间,是一座三层木结构楼阁,高约20米。楼内保存有清代著名文人孙髯翁撰写的180字长联,被誉为"天下第一长联"。</p>
+                    <p class="mb-4">公园内还有许多其他景点,如庾园、鲁园、柏园等,这些景点都有着独特的历史和文化价值。此外,公园内还有一个大型的荷花池,夏季荷花盛开,景色十分美丽。</p>
+                    <p class="mb-4">大观公园是观赏滇池的好地方,从公园内可以远眺滇池和西山,景色十分壮观。特别是在傍晚时分,夕阳西下,滇池波光粼粼,景色格外美丽。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>公交：乘坐4路、22路、52路、95路等公交车到大观楼站下车</li>
+                        <li>打车：从酒店打车约20分钟,费用约25元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：2小时</li>
+                        <li>大观楼是必游景点,门票包含在公园门票内</li>
+                        <li>夏季（6月-8月）是赏荷的最佳时间</li>
+                        <li>建议下午前往,可以欣赏日落美景</li>
+                    </ul>
+                `,
+                transport: {
+                    bus: "4路、22路、52路、95路到大观楼站",
+                    taxi: "约20分钟,费用约25元"
+                }
+            },
+            {
+                id: 12,
+                name: "云南野生动物园",
+                description: "近距离观赏珍稀动物,是亲子游玩的好去处。",
+                address: "云南省昆明市盘龙区沣源路清水木华小区东侧",
+                price: "¥100/人",
+                openingHours: "09:00-17:00",
+                coordinates: [102.7847, 25.1139],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: false,
+                details: `
+                    <p class="mb-4">云南野生动物园位于昆明市盘龙区沣源路,是一个集观赏、保护、科研、教育为一体的综合性野生动物园。</p>
+                    <p class="mb-4">动物园占地面积约2000亩,分为步行区和车行区两部分。步行区主要展示灵长类、鸟类、两栖爬行类等动物；车行区主要展示大型食草动物和食肉动物。</p>
+                    <p class="mb-4">动物园内有来自世界各地的珍稀动物,包括大熊猫、小熊猫、金丝猴、长臂猿、亚洲象、长颈鹿、斑马、狮子、老虎等。游客可以近距离观赏这些动物,了解它们的生活习性。</p>
+                    <p class="mb-4">动物园还提供多种互动体验活动,如喂食长颈鹿、骑马、骑大象等,让游客与动物有更亲密的接触。此外,动物园内还有动物表演,如大象表演、鸟类表演等,深受游客喜爱。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>公交：乘坐235路、241路、249路等公交车到云南野生动物园站下车</li>
+                        <li>打车：从酒店打车约30分钟,费用约40元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：4-5小时</li>
+                        <li>动物园内有观光车,票价30元/人,可以节省体力</li>
+                        <li>建议上午前往,此时动物比较活跃</li>
+                        <li>动物园内有餐厅,可以用餐</li>
+                        <li>是亲子游玩的好去处,适合带孩子前来</li>
+                    </ul>
+                `,
+                transport: {
+                    bus: "235路、241路、249路到云南野生动物园站",
+                    taxi: "约30分钟,费用约40元"
+                }
+            },
+            {
+                id: 13,
+                name: "七彩云南欢乐世界",
+                description: "多主题的娱乐中心,有各种刺激的游乐设施,适合全家游玩。",
+                address: "云南省昆明市晋宁区环湖南路辅路",
+                price: "¥180/人",
+                openingHours: "10:00-21:00",
+                coordinates: [102.6217, 24.6856],
+                image: "https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D",
+                isPlanned: false,
+                details: `
+                    <p class="mb-4">七彩云南欢乐世界位于昆明市晋宁区环湖南路,是一个集娱乐、休闲、度假为一体的大型主题乐园。</p>
+                    <p class="mb-4">乐园占地面积约700亩,分为滇军营地、幻滇奇域、童梦世界、万象部落、洪荒秘境、霜月寒洲、四季花海等七大主题区域。每个主题区域都有独特的设计和特色的游乐设施。</p>
+                    <p class="mb-4">乐园内有各种刺激的游乐设施,如过山车、大摆锤、跳楼机等,适合喜欢挑战的游客。同时,乐园也有许多适合儿童的游乐设施,如旋转木马、小火车、儿童城堡等,是全家游玩的好去处。</p>
+                    <p class="mb-4">乐园内还有丰富多彩的表演节目,如民族歌舞表演、马戏表演、烟花表演等。特别是在节假日,乐园会推出特别的主题活动,如春节灯会、万圣节派对等。</p>
+                    <h4 class="text-lg font-bold mb-2">交通指南</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>公交：乘坐K31路、K38路等公交车到七彩云南欢乐世界站下车</li>
+                        <li>打车：从酒店打车约40分钟,费用约50元</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">游览建议</h4>
+                    <ul class="list-disc pl-5">
+                        <li>建议游览时长：一整天</li>
+                        <li>乐园内有多个餐厅,可以用餐</li>
+                        <li>建议提前规划好游玩路线,避免浪费时间</li>
+                        <li>节假日人流量较大,建议避开人流高峰</li>
+                        <li>夏季紫外线强,注意防晒</li>
+                    </ul>
+                `,
+                transport: {
+                    bus: "K31路、K38路到七彩云南欢乐世界站",
+                    taxi: "约40分钟,费用约50元"
+                }
+            }
+        ];
+        
+        // 景点筛选功能
+        document.querySelectorAll('.attraction-filter').forEach(button => {
+            button.addEventListener('click', function() {
+                // 更新按钮样式
+                document.querySelectorAll('.attraction-filter').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('bg-primary', 'text-white');
+                
+                // 筛选景点
+                const filter = this.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.attraction-card');
+                
+                cards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                    } else if (filter === 'planned') {
+                        if (card.getAttribute('data-planned') === 'true') {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    } else {
+                        if (card.getAttribute('data-day') === filter.replace('day', '')) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+        
+        // 景点详情模态框
+        const modal = document.getElementById('attraction-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+        
+        // 打开模态框
+        document.querySelectorAll('.view-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = parseInt(this.getAttribute('data-id'));
+                const attraction = attractions.find(item => item.id === id);
+                
+                if (attraction) {
+                    // 填充模态框内容
+                    modalContent.innerHTML = `
+                        <div class="relative h-80 overflow-hidden rounded-lg mb-6">
+                            <img src="${attraction.image}" alt="${attraction.name}" class="w-full h-full object-cover">
+                            ${attraction.isPlanned ? `<div class="absolute top-4 right-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">计划第${attraction.day}天游览</div>` : `<div class="absolute top-4 right-4 bg-gray-400 text-white text-sm font-bold px-3 py-1 rounded-full">周边景点</div>`}
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">${attraction.name}</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            <span class="text-gray-600">${attraction.address}</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="text-sm font-bold text-gray-500 mb-1">门票价格</h4>
+                                <p class="text-primary font-bold">${attraction.price}</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="text-sm font-bold text-gray-500 mb-1">开放时间</h4>
+                                <p class="font-medium">${attraction.openingHours}</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="text-sm font-bold text-gray-500 mb-1">建议游览时长</h4>
+                                <p class="font-medium">${attraction.details.match(/建议游览时长：(.+?)<\/li>/)[1]}</p>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">景点介绍</h3>
+                        <div class="prose max-w-none mb-6">
+                            ${attraction.details}
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="map.html" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-all-300 inline-flex items-center">
+                                <i class="fa fa-map mr-2"></i>在地图上查看
+                            </a>
+                            <a href="transportation.html" class="border border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-white transition-all-300 inline-flex items-center">
+                                <i class="fa fa-bus mr-2"></i>查看交通指南
+                            </a>
+                        </div>
+                    `;
+                    
+                    // 显示模态框
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // 关闭模态框
+        function hideModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        closeModal.addEventListener('click', hideModal);
+        modalOverlay.addEventListener('click', hideModal);
+        
+        // 点击模态框内容区域不关闭模态框
+        modalContent.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

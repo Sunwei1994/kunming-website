@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昆明美食推荐 - 昆明6天5晚游玩攻略</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#EC4899',
+                        accent: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .bg-gradient-overlay {
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-800">昆明旅游攻略</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition-all-300">首页</a>
+                    <a href="map.html" class="text-gray-600 hover:text-primary transition-all-300">地图</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary transition-all-300">景点</a>
+                    <a href="food.html" class="text-primary font-medium hover:text-primary-dark transition-all-300">美食</a>
+                    <a href="transportation.html" class="text-gray-600 hover:text-primary transition-all-300">交通</a>
+                    <a href="itinerary.html" class="text-gray-600 hover:text-primary transition-all-300">行程</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="index.html" class="block py-2 text-gray-600 hover:text-primary">首页</a>
+                <a href="map.html" class="block py-2 text-gray-600 hover:text-primary">地图</a>
+                <a href="attractions.html" class="block py-2 text-gray-600 hover:text-primary">景点</a>
+                <a href="food.html" class="block py-2 text-primary font-medium">美食</a>
+                <a href="transportation.html" class="block py-2 text-gray-600 hover:text-primary">交通</a>
+                <a href="itinerary.html" class="block py-2 text-gray-600 hover:text-primary">行程</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="bg-secondary text-white py-12">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl md:text-4xl font-bold text-center">昆明美食推荐</h1>
+                <p class="text-center mt-2">品味昆明独特的多民族美食文化</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 美食分类标签 -->
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button class="food-filter px-4 py-2 rounded-full bg-secondary text-white" data-filter="all">全部美食</button>
+            <button class="food-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-secondary hover:text-white transition-all-300" data-filter="musttry">必尝美食</button>
+            <button class="food-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-secondary hover:text-white transition-all-300" data-filter="snack">特色小吃</button>
+            <button class="food-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-secondary hover:text-white transition-all-300" data-filter="dish">经典菜肴</button>
+            <button class="food-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-secondary hover:text-white transition-all-300" data-filter="dessert">甜品饮品</button>
+        </div>
+
+        <!-- 美食列表 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="foods-container">
+            <!-- 过桥米线 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="1" data-category="musttry,dish">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/pgc-image/1526882210531c9ab17d94d~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=Q2hIvxMLeeftUn26PeENanLrSKA%3D" alt="过桥米线" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        必尝美食
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">过桥米线</h3>
+                    <p class="text-gray-600 mb-4">云南最具代表性的特色美食，用滚烫的鸡汤将生肉片、蔬菜和米线烫熟后食用，味道鲜美。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥30-60/份</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="1">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 汽锅鸡 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="2" data-category="musttry,dish">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/labis/8e08524eef8d648eec35af4a39c99815~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=9qwoFEIwOfCoXtrhofnm4stX4Yw%3D" alt="汽锅鸡" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        必尝美食
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">汽锅鸡</h3>
+                    <p class="text-gray-600 mb-4">云南传统名菜，用建水紫陶汽锅蒸制而成，鸡肉鲜嫩，汤汁鲜美，营养丰富。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥80-120/锅</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="2">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 官渡粑粑 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="3" data-category="musttry,snack">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/labis/image/87d31e09f9d4a8829b08ffd8a2f6b706~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=K46yGkcoKM3dvjlhuD0XNrqFg%2Fc%3D" alt="官渡粑粑" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                        必尝美食
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">官渡粑粑</h3>
+                    <p class="text-gray-600 mb-4">昆明传统街头小吃，以面粉为主料，搭配各种馅料，经发酵、包馅、摊制后，在旋转锅上烙至金黄。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥10-15/个</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="3">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 石林乳饼 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="4" data-category="dish">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/labis/25be0943b94788d7a14d565471b0c314~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=2Nk3Ouwk7YBKcJlmQ%2FS4JL8Dqrc%3D" alt="石林乳饼" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">石林乳饼</h3>
+                    <p class="text-gray-600 mb-4">石林县特产，以羊奶为原料制成的奶酪，可煎、炸、蒸、煮，味道鲜美，营养丰富。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥40-60/份</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="4">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 破酥粑粑 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="5" data-category="snack">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/labis/image/8303acdf2c37391437e1a09ed19fab9f~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=QohYZdYct1yjBZ%2Bibi3NDiXYl3w%3D" alt="破酥粑粑" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">破酥粑粑</h3>
+                    <p class="text-gray-600 mb-4">昆明传统小吃，外皮酥脆，内部柔软，有甜、咸两种口味，是当地人喜爱的早餐。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥8-12/个</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="5">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 云南小锅米线 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="6" data-category="snack">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/ecom-shop-material/oorZfBcR_m_8f6c212bba6a169494d0380d4bcfd67d_sx_149763_www800-800~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=uW%2BR2HvAvIe1IX8%2BnS5no8pbcAY%3D" alt="云南小锅米线" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">云南小锅米线</h3>
+                    <p class="text-gray-600 mb-4">昆明特色小吃，用小锅煮制，配以肉酱、豆芽、韭菜等食材，味道鲜美。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥15-25/碗</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="6">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 玫瑰鲜花饼 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="7" data-category="dessert">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/ecom-shop-material/jpeg_m_e540ca9eb0296d6042f29bc224a77c56_sx_338100_www1024-1024~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=nu6uB8e02ev1osVhxGPm2rcbGVc%3D" alt="玫瑰鲜花饼" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">玫瑰鲜花饼</h3>
+                    <p class="text-gray-600 mb-4">以云南特有的食用玫瑰为原料制成的糕点，外皮酥脆，内馅香甜，花香浓郁。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥8-15/个</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="7">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 豌豆粉 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="8" data-category="snack">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/labis/image/d475815e6f0ada1688ffd0929d714336~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=9KKyD72AOtwHORYLbdfba%2BK6Mfs%3D" alt="豌豆粉" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">豌豆粉</h3>
+                    <p class="text-gray-600 mb-4">昆明传统小吃，以豌豆为原料制成的凉粉，配以各种调料，口感爽滑，味道酸辣可口。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥10-15/份</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="8">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 酸角汁 -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all-300" data-id="9" data-category="dessert">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/labis/903027b6ae3c7bca737b4d5b55dfa80a~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=XK0mrzrwxEz75nlLoxXox9ad9wo%3D" alt="酸角汁" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">酸角汁</h3>
+                    <p class="text-gray-600 mb-4">以云南特产酸角为原料制成的饮品，酸甜可口，消暑解渴，是当地人喜爱的饮品。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">¥10-20/杯</span>
+                        <button class="view-details text-primary hover:text-primary/80 font-medium inline-flex items-center" data-id="9">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 美食详情模态框 -->
+    <div id="food-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" id="modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none">
+                <i class="fa fa-times text-2xl"></i>
+            </button>
+            <div id="modal-content" class="p-6">
+                <!-- 模态框内容将通过JavaScript动态添加 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部区域 -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">昆明旅游攻略</h3>
+                    <p class="text-gray-400">为您提供昆明6天5晚的完整游玩指南，包括景点介绍、美食推荐、交通路线和行程安排。</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速导航</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-all-300">首页</a></li>
+                        <li><a href="map.html" class="text-gray-400 hover:text-white transition-all-300">地图</a></li>
+                        <li><a href="attractions.html" class="text-gray-400 hover:text-white transition-all-300">景点</a></li>
+                        <li><a href="food.html" class="text-gray-400 hover:text-white transition-all-300">美食</a></li>
+                        <li><a href="transportation.html" class="text-gray-400 hover:text-white transition-all-300">交通</a></li>
+                        <li><a href="itinerary.html" class="text-gray-400 hover:text-white transition-all-300">行程</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">实用信息</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">天气信息</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">穿衣指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">购物指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">安全提示</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all-300">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-gray-400 mr-2"></i>
+                            <a href="mailto:info@kunmingguide.com" class="text-gray-400 hover:text-white transition-all-300">info@kunmingguide.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-gray-400 mr-2"></i>
+                            <a href="tel:+86123456789" class="text-gray-400 hover:text-white transition-all-300">+86 123 456 789</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">昆明市官渡区环城南路</span>
+                        </li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2026 昆明旅游攻略. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 美食数据
+        const foods = [
+            {
+                id: 1,
+                name: "过桥米线",
+                description: "云南最具代表性的特色美食，用滚烫的鸡汤将生肉片、蔬菜和米线烫熟后食用，味道鲜美。",
+                price: "¥30-60/份",
+                image: "https://p11-doubao-search-sign.byteimg.com/pgc-image/1526882210531c9ab17d94d~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=Q2hIvxMLeeftUn26PeENanLrSKA%3D",
+                category: "musttry,dish",
+                details: `
+                    <p class="mb-4">过桥米线是云南最具代表性的特色美食，以其独特的食用方式和鲜美的味道而闻名于世。</p>
+                    <p class="mb-4">过桥米线的历史可以追溯到清朝末年，传说起源于云南蒙自。关于过桥米线的由来，有一个美丽的传说：从前，蒙自一位秀才为了应考，把自己关在南湖中的小岛上日夜攻读。妻子每天给他送饭，因路远饭菜常常凉了。一天，妻子炖了一只肥母鸡，用土罐盛了鸡汤，带上秀才爱吃的米线和佐料送去。当她端汤罐时，手被烫得缩了回来。原来，鸡汤上飘浮着一层厚厚的鸡油，保持了温度。于是，她把佐料放入汤内涮烫，再放入米线。秀才吃得热乎乎的，味道也觉着格外鲜美，大加赞赏。因为妻子送饭必须经过一座桥，秀才便笑着对妻子说："就把你今儿做的美餐叫做过桥米线吧。"从此，过桥米线便在民间传开了。</p>
+                    <p class="mb-4">过桥米线的制作非常讲究，主要分为三个部分：一是汤底，通常用肥鸡、筒子骨等熬制数小时而成，汤清味浓；二是米线，选用优质大米，经发酵、磨浆、滤条、蒸粉、压榨等工序制成；三是配料，包括生的鸡胸脯肉片、猪肉片、鱼片、猪肝片、猪腰片等荤菜，以及豌豆尖、韭菜、菠菜、玉兰片等素菜。</p>
+                    <p class="mb-4">食用过桥米线时，先将生肉片放入滚烫的鸡汤中涮熟，然后加入蔬菜，最后放入米线，配以香油、胡椒、辣椒油、香菜末等调料即可食用。由于汤的温度很高，肉片一涮即熟，保持了鲜嫩的口感，米线吸收了汤汁的鲜味，吃起来爽滑可口。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐餐厅</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>云南过桥米线馆（南屏步行街店）：位于昆明市五华区南屏步行街，是昆明最有名的过桥米线店之一，价格适中，味道正宗。</li>
+                        <li>建新园（宝善街店）：位于昆明市五华区宝善街，是一家有着百年历史的老字号，过桥米线味道正宗，环境典雅。</li>
+                        <li>桥香园（翠湖店）：位于昆明市五华区翠湖南路，环境优美，可以边吃米线边欣赏翠湖美景。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>过桥米线的汤温度很高，食用时要小心烫伤。</li>
+                        <li>生肉片放入汤中后要迅速搅拌，以免粘在一起。</li>
+                        <li>米线可以根据个人口味选择粗细。</li>
+                        <li>建议选择有信誉的老字号店铺品尝正宗的过桥米线。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "云南过桥米线馆",
+                        address: "昆明市五华区南屏步行街",
+                        priceRange: "人均40元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "建新园",
+                        address: "昆明市五华区宝善街",
+                        priceRange: "人均35元",
+                        rating: "4.8/5"
+                    },
+                    {
+                        name: "桥香园",
+                        address: "昆明市五华区翠湖南路",
+                        priceRange: "人均45元",
+                        rating: "4.6/5"
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "汽锅鸡",
+                description: "云南传统名菜，用建水紫陶汽锅蒸制而成，鸡肉鲜嫩，汤汁鲜美，营养丰富。",
+                price: "¥80-120/锅",
+                image: "https://p26-doubao-search-sign.byteimg.com/labis/8e08524eef8d648eec35af4a39c99815~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=9qwoFEIwOfCoXtrhofnm4stX4Yw%3D",
+                category: "musttry,dish",
+                details: `
+                    <p class="mb-4">汽锅鸡是云南传统名菜，以其独特的烹饪方式和鲜美的味道而闻名。</p>
+                    <p class="mb-4">汽锅鸡的历史可以追溯到清代，起源于云南建水。建水是著名的陶乡，出产的紫陶汽锅是制作汽锅鸡的必备工具。汽锅鸡以其独特的烹饪方式而得名：将鸡块放入汽锅中，不加一滴水，利用汽锅底部的小孔，让蒸汽通过小孔进入汽锅，在锅内凝成水珠，成为汤汁。这种烹饪方式保留了鸡肉的原汁原味，使鸡肉更加鲜嫩，汤汁更加鲜美。</p>
+                    <p class="mb-4">汽锅鸡的制作非常讲究，首先要选择优质的土鸡，最好是云南本地的散养土鸡。将鸡肉洗净切块，放入汽锅中，加入适量的盐、姜、葱等调料。然后将汽锅放入大锅中，大锅中加入适量的水，用旺火蒸煮约四小时。在蒸煮过程中，蒸汽通过汽锅底部的小孔进入汽锅，在锅内凝成水珠，成为汤汁。由于汽锅的特殊设计，蒸汽在锅内循环，使鸡肉受热均匀，煮出来的鸡肉鲜嫩多汁，汤汁鲜美可口。</p>
+                    <p class="mb-4">汽锅鸡不仅味道鲜美，而且营养丰富。鸡肉中含有丰富的蛋白质、氨基酸、维生素等营养成分，具有滋补身体、增强免疫力的功效。汤汁中含有大量的胶原蛋白和氨基酸，具有美容养颜、抗衰老的作用。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐餐厅</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>福照楼（翠湖店）：位于昆明市五华区翠湖南路，是一家有着百年历史的老字号，汽锅鸡味道正宗，环境典雅。</li>
+                        <li>石屏会馆：位于昆明市五华区翠湖南路，是一家以云南传统菜为主的餐厅，汽锅鸡是其招牌菜之一。</li>
+                        <li>云南人家（滇池路店）：位于昆明市西山区滇池路，环境优美，可以边吃汽锅鸡边欣赏滇池美景。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>正宗的汽锅鸡是用建水紫陶汽锅制作的，味道更佳。</li>
+                        <li>汽锅鸡最好选择土鸡，肉质更加鲜嫩。</li>
+                        <li>汽锅鸡的汤汁非常鲜美，可以用来泡饭或煮面条。</li>
+                        <li>汽锅鸡可以根据个人口味加入不同的调料，如三七、天麻等，具有不同的保健功效。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "福照楼",
+                        address: "昆明市五华区翠湖南路",
+                        priceRange: "人均80元",
+                        rating: "4.8/5"
+                    },
+                    {
+                        name: "石屏会馆",
+                        address: "昆明市五华区翠湖南路",
+                        priceRange: "人均75元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "云南人家",
+                        address: "昆明市西山区滇池路",
+                        priceRange: "人均85元",
+                        rating: "4.6/5"
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: "官渡粑粑",
+                description: "昆明传统街头小吃，以面粉为主料，搭配各种馅料，经发酵、包馅、摊制后，在旋转锅上烙至金黄。",
+                price: "¥10-15/个",
+                image: "https://p26-doubao-search-sign.byteimg.com/labis/image/87d31e09f9d4a8829b08ffd8a2f6b706~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=K46yGkcoKM3dvjlhuD0XNrqFg%2Fc%3D",
+                category: "musttry,snack",
+                details: `
+                    <p class="mb-4">官渡粑粑是昆明传统街头小吃，以其独特的制作工艺和美味的口感而深受当地人喜爱。</p>
+                    <p class="mb-4">官渡粑粑的历史可以追溯到清代，起源于昆明官渡古镇。官渡古镇是昆明历史悠久的古镇之一，有着丰富的文化遗产和美食文化。官渡粑粑是官渡古镇的传统小吃，以其独特的制作工艺和美味的口感而闻名。</p>
+                    <p class="mb-4">官渡粑粑的制作工艺非常独特，首先将面粉、酵母、盐、糖等原料混合，加入适量的水，揉成面团，发酵一段时间。然后将面团分成小剂子，包入各种馅料，如豆沙、白糖、芝麻、花生等。最后将包好的粑粑放在旋转锅上烙至金黄即可。</p>
+                    <p class="mb-4">官渡粑粑的特点是外皮酥脆，内部柔软，馅料香甜可口。不同的馅料有着不同的口味，可以满足不同人的需求。官渡粑粑不仅味道美味，而且价格实惠，是昆明当地人喜爱的早餐和零食。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐店铺</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>官渡粑粑（官渡古镇店）：位于昆明市官渡区官渡古镇内，是官渡粑粑的发源地，味道最正宗。</li>
+                        <li>老俩口官渡粑粑：位于昆明市五华区南屏步行街，是一家有着多年历史的老字号，官渡粑粑味道正宗，价格实惠。</li>
+                        <li>王记官渡粑粑：位于昆明市西山区滇池路，是一家当地人推荐的店铺，官渡粑粑味道好，分量足。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>官渡粑粑最好趁热食用，味道更佳。</li>
+                        <li>不同的馅料有着不同的口味，可以根据个人喜好选择。</li>
+                        <li>官渡粑粑可以保存一段时间，但最好在当天食用完毕。</li>
+                        <li>在官渡古镇可以品尝到最正宗的官渡粑粑。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "官渡粑粑",
+                        address: "昆明市官渡区官渡古镇内",
+                        priceRange: "人均12元",
+                        rating: "4.8/5"
+                    },
+                    {
+                        name: "老俩口官渡粑粑",
+                        address: "昆明市五华区南屏步行街",
+                        priceRange: "人均10元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "王记官渡粑粑",
+                        address: "昆明市西山区滇池路",
+                        priceRange: "人均15元",
+                        rating: "4.6/5"
+                    }
+                ]
+            },
+            {
+                id: 4,
+                name: "石林乳饼",
+                description: "石林县特产，以羊奶为原料制成的奶酪，可煎、炸、蒸、煮，味道鲜美，营养丰富。",
+                price: "¥40-60/份",
+                image: "https://p26-doubao-search-sign.byteimg.com/labis/25be0943b94788d7a14d565471b0c314~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=2Nk3Ouwk7YBKcJlmQ%2FS4JL8Dqrc%3D",
+                category: "dish",
+                details: `
+                    <p class="mb-4">石林乳饼是云南省昆明市石林彝族自治县的特产，是一种以羊奶为原料制成的奶酪，因其形状像饼而得名。</p>
+                    <p class="mb-4">石林乳饼的历史可以追溯到元代，是石林彝族人民的传统食品。石林地区气候适宜，水草丰美，是理想的养羊区。当地的彝族人民利用丰富的羊奶资源，制作出了美味的乳饼。</p>
+                    <p class="mb-4">石林乳饼的制作工艺非常独特，首先将新鲜的羊奶加热至沸腾，然后加入适量的酸水（通常是用米汤发酵而成），使羊奶凝固。然后将凝固的羊奶过滤，压制成块状，晾干即可。石林乳饼的特点是色泽乳白中带黄，质地纯净、滋润光滑、气味清香，富含蛋白质、多种氨基酸、矿物质等营养成分。</p>
+                    <p class="mb-4">石林乳饼的食用方法多种多样，可以煎、炸、蒸、煮，也可以生吃。其中，最常见的食用方法是煎乳饼：将乳饼切成薄片，放入油锅中煎至两面金黄，撒上适量的盐即可食用。煎乳饼外酥里嫩，味道鲜美，是石林地区的传统名菜。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐餐厅</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>石林彝家菜馆：位于昆明市石林彝族自治县石林风景区附近，是一家以彝族菜为主的餐厅，乳饼是其招牌菜之一。</li>
+                        <li>福照楼（翠湖店）：位于昆明市五华区翠湖南路，是一家有着百年历史的老字号，乳饼制作精良，味道正宗。</li>
+                        <li>云南人家（滇池路店）：位于昆明市西山区滇池路，环境优美，可以品尝到正宗的石林乳饼。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>石林乳饼最好选择新鲜的，味道更佳。</li>
+                        <li>乳饼可以根据个人口味选择不同的烹饪方式。</li>
+                        <li>乳饼富含蛋白质和钙，是一种营养丰富的食品。</li>
+                        <li>在石林风景区附近可以购买到正宗的石林乳饼。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "石林彝家菜馆",
+                        address: "昆明市石林彝族自治县石林风景区附近",
+                        priceRange: "人均60元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "福照楼",
+                        address: "昆明市五华区翠湖南路",
+                        priceRange: "人均80元",
+                        rating: "4.8/5"
+                    },
+                    {
+                        name: "云南人家",
+                        address: "昆明市西山区滇池路",
+                        priceRange: "人均85元",
+                        rating: "4.6/5"
+                    }
+                ]
+            },
+            {
+                id: 5,
+                name: "破酥粑粑",
+                description: "昆明传统小吃，外皮酥脆，内部柔软，有甜、咸两种口味，是当地人喜爱的早餐。",
+                price: "¥8-12/个",
+                image: "https://p11-doubao-search-sign.byteimg.com/labis/image/8303acdf2c37391437e1a09ed19fab9f~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=QohYZdYct1yjBZ%2Bibi3NDiXYl3w%3D",
+                category: "snack",
+                details: `
+                    <p class="mb-4">破酥粑粑是昆明传统小吃，以其外皮酥脆，内部柔软的特点而深受当地人喜爱。</p>
+                    <p class="mb-4">破酥粑粑的历史悠久，是昆明地区的传统早餐之一。它的制作工艺独特，首先将面粉、酵母、盐、糖等原料混合，加入适量的水，揉成面团，发酵一段时间。然后将面团分成小剂子，擀成薄片，涂上一层油，折叠几次，再擀成圆形。最后将粑粑放在平底锅上烙至两面金黄即可。</p>
+                    <p class="mb-4">破酥粑粑的特点是外皮酥脆，内部柔软，层次分明。它有甜、咸两种口味，甜味的通常包入豆沙、白糖等馅料，咸味的通常包入火腿、葱花等馅料。破酥粑粑不仅味道美味，而且价格实惠，是昆明当地人喜爱的早餐和零食。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐店铺</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>金兰破酥粑粑：位于昆明市五华区南屏步行街，是一家有着多年历史的老字号，破酥粑粑味道正宗，价格实惠。</li>
+                        <li>老昆明破酥粑粑：位于昆明市西山区滇池路，是一家当地人推荐的店铺，破酥粑粑味道好，分量足。</li>
+                        <li>官渡古镇破酥粑粑：位于昆明市官渡区官渡古镇内，是官渡古镇的特色小吃之一。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>破酥粑粑最好趁热食用，味道更佳。</li>
+                        <li>不同的口味有着不同的特点，可以根据个人喜好选择。</li>
+                        <li>破酥粑粑可以保存一段时间，但最好在当天食用完毕。</li>
+                        <li>在昆明的街头巷尾都可以找到卖破酥粑粑的小摊。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "金兰破酥粑粑",
+                        address: "昆明市五华区南屏步行街",
+                        priceRange: "人均10元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "老昆明破酥粑粑",
+                        address: "昆明市西山区滇池路",
+                        priceRange: "人均12元",
+                        rating: "4.6/5"
+                    },
+                    {
+                        name: "官渡古镇破酥粑粑",
+                        address: "昆明市官渡区官渡古镇内",
+                        priceRange: "人均10元",
+                        rating: "4.5/5"
+                    }
+                ]
+            },
+            {
+                id: 6,
+                name: "云南小锅米线",
+                description: "昆明特色小吃，用小锅煮制，配以肉酱、豆芽、韭菜等食材，味道鲜美。",
+                price: "¥15-25/碗",
+                image: "https://p11-doubao-search-sign.byteimg.com/ecom-shop-material/oorZfBcR_m_8f6c212bba6a169494d0380d4bcfd67d_sx_149763_www800-800~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=uW%2BR2HvAvIe1IX8%2BnS5no8pbcAY%3D",
+                category: "snack",
+                details: `
+                    <p class="mb-4">云南小锅米线是昆明特色小吃，以其独特的烹饪方式和鲜美的味道而深受当地人喜爱。</p>
+                    <p class="mb-4">云南小锅米线的历史悠久，是昆明地区的传统小吃之一。它的制作工艺独特，首先将米线放入小锅中，加入适量的水，煮至米线变软。然后加入肉酱、豆芽、韭菜、酸腌菜等食材，再加入适量的盐、酱油、辣椒油等调料，煮至沸腾即可。</p>
+                    <p class="mb-4">云南小锅米线的特点是汤汁浓郁，米线柔软，配料丰富。它的味道麻辣鲜香，非常适合云南人的口味。小锅米线不仅味道美味，而且价格实惠，是昆明当地人喜爱的早餐和午餐。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐店铺</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>建新园（宝善街店）：位于昆明市五华区宝善街，是一家有着百年历史的老字号，小锅米线味道正宗，价格实惠。</li>
+                        <li>桥香园（翠湖店）：位于昆明市五华区翠湖南路，环境优美，可以边吃米线边欣赏翠湖美景。</li>
+                        <li>老昆明小锅米线：位于昆明市西山区滇池路，是一家当地人推荐的店铺，小锅米线味道好，分量足。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>小锅米线的辣度可以根据个人口味调整。</li>
+                        <li>可以根据个人喜好添加不同的配料，如卤蛋、火腿等。</li>
+                        <li>小锅米线最好趁热食用，味道更佳。</li>
+                        <li>在昆明的街头巷尾都可以找到卖小锅米线的小店。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "建新园",
+                        address: "昆明市五华区宝善街",
+                        priceRange: "人均20元",
+                        rating: "4.8/5"
+                    },
+                    {
+                        name: "桥香园",
+                        address: "昆明市五华区翠湖南路",
+                        priceRange: "人均25元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "老昆明小锅米线",
+                        address: "昆明市西山区滇池路",
+                        priceRange: "人均18元",
+                        rating: "4.6/5"
+                    }
+                ]
+            },
+            {
+                id: 7,
+                name: "玫瑰鲜花饼",
+                description: "以云南特有的食用玫瑰为原料制成的糕点，外皮酥脆，内馅香甜，花香浓郁。",
+                price: "¥8-15/个",
+                image: "https://p26-doubao-search-sign.byteimg.com/ecom-shop-material/jpeg_m_e540ca9eb0296d6042f29bc224a77c56_sx_338100_www1024-1024~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=nu6uB8e02ev1osVhxGPm2rcbGVc%3D",
+                category: "dessert",
+                details: `
+                    <p class="mb-4">玫瑰鲜花饼是云南特色糕点，以其独特的风味和精美的外观而深受游客喜爱。</p>
+                    <p class="mb-4">玫瑰鲜花饼的历史可以追溯到清代，是云南地区的传统糕点之一。它的制作工艺独特，首先将面粉、黄油、糖等原料混合，揉成面团，制成饼皮。然后将云南特有的食用玫瑰花瓣洗净，加入适量的糖，制成玫瑰馅。最后将玫瑰馅包入饼皮中，放入烤箱中烤至金黄即可。</p>
+                    <p class="mb-4">玫瑰鲜花饼的特点是外皮酥脆，内馅香甜，花香浓郁。它不仅味道美味，而且具有美容养颜、理气解郁的功效。玫瑰鲜花饼是云南的特色伴手礼，深受游客喜爱。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐店铺</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>嘉华饼屋：是云南著名的糕点连锁店，玫瑰鲜花饼是其招牌产品，味道正宗，包装精美。</li>
+                        <li>潘祥记：是一家有着百年历史的老字号，玫瑰鲜花饼制作精良，味道正宗。</li>
+                        <li>花满楼：是一家专门制作鲜花饼的店铺，品种齐全，味道好。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>玫瑰鲜花饼最好选择新鲜制作的，味道更佳。</li>
+                        <li>玫瑰鲜花饼可以保存一段时间，但最好在保质期内食用完毕。</li>
+                        <li>玫瑰鲜花饼是云南的特色伴手礼，适合送给亲朋好友。</li>
+                        <li>在昆明的各大商场和超市都可以购买到玫瑰鲜花饼。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "嘉华饼屋",
+                        address: "昆明市五华区南屏步行街",
+                        priceRange: "人均12元",
+                        rating: "4.8/5"
+                    },
+                    {
+                        name: "潘祥记",
+                        address: "昆明市五华区正义路",
+                        priceRange: "人均15元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "花满楼",
+                        address: "昆明市西山区滇池路",
+                        priceRange: "人均10元",
+                        rating: "4.6/5"
+                    }
+                ]
+            },
+            {
+                id: 8,
+                name: "豌豆粉",
+                description: "昆明传统小吃，以豌豆为原料制成的凉粉，配以各种调料，口感爽滑，味道酸辣可口。",
+                price: "¥10-15/份",
+                image: "https://p11-doubao-search-sign.byteimg.com/labis/image/d475815e6f0ada1688ffd0929d714336~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=9KKyD72AOtwHORYLbdfba%2BK6Mfs%3D",
+                category: "snack",
+                details: `
+                    <p class="mb-4">豌豆粉是昆明传统小吃，以其爽滑的口感和酸辣的味道而深受当地人喜爱。</p>
+                    <p class="mb-4">豌豆粉的历史悠久，是昆明地区的传统小吃之一。它的制作工艺独特，首先将豌豆洗净，浸泡一段时间，然后磨成豆浆，加入适量的水，煮至沸腾。然后将煮好的豆浆倒入容器中，冷却后形成凉粉。最后将凉粉切成条状，配以各种调料即可食用。</p>
+                    <p class="mb-4">豌豆粉的特点是口感爽滑，味道酸辣可口。它的调料通常包括酱油、醋、辣椒油、花椒油、芝麻、葱花等，可以根据个人口味调整。豌豆粉不仅味道美味，而且营养丰富，富含蛋白质、膳食纤维等营养成分。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐店铺</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>老昆明豌豆粉：位于昆明市五华区南屏步行街，是一家有着多年历史的老字号，豌豆粉味道正宗，价格实惠。</li>
+                        <li>官渡古镇豌豆粉：位于昆明市官渡区官渡古镇内，是官渡古镇的特色小吃之一。</li>
+                        <li>建新园（宝善街店）：位于昆明市五华区宝善街，是一家有着百年历史的老字号，豌豆粉是其特色小吃之一。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>豌豆粉最好现切现吃，口感更佳。</li>
+                        <li>调料可以根据个人口味调整，喜欢吃辣的可以多放一些辣椒油。</li>
+                        <li>豌豆粉可以作为早餐、午餐或小吃食用。</li>
+                        <li>在昆明的街头巷尾都可以找到卖豌豆粉的小摊。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "老昆明豌豆粉",
+                        address: "昆明市五华区南屏步行街",
+                        priceRange: "人均12元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "官渡古镇豌豆粉",
+                        address: "昆明市官渡区官渡古镇内",
+                        priceRange: "人均10元",
+                        rating: "4.6/5"
+                    },
+                    {
+                        name: "建新园",
+                        address: "昆明市五华区宝善街",
+                        priceRange: "人均15元",
+                        rating: "4.5/5"
+                    }
+                ]
+            },
+            {
+                id: 9,
+                name: "酸角汁",
+                description: "以云南特产酸角为原料制成的饮品，酸甜可口，消暑解渴，是当地人喜爱的饮品。",
+                price: "¥10-20/杯",
+                image: "https://p26-doubao-search-sign.byteimg.com/labis/903027b6ae3c7bca737b4d5b55dfa80a~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479995&x-signature=XK0mrzrwxEz75nlLoxXox9ad9wo%3D",
+                category: "dessert",
+                details: `
+                    <p class="mb-4">酸角汁是云南特色饮品，以其酸甜可口的味道和消暑解渴的功效而深受当地人喜爱。</p>
+                    <p class="mb-4">酸角是云南特产，是一种生长在热带和亚热带地区的植物果实。酸角汁的制作工艺简单，首先将酸角洗净，去除外壳，取出果肉。然后将果肉放入锅中，加入适量的水和糖，煮至沸腾。最后将煮好的酸角汁过滤，冷却后即可饮用。</p>
+                    <p class="mb-4">酸角汁的特点是酸甜可口，消暑解渴。它不仅味道美味，而且具有开胃消食、清热解暑的功效。酸角汁是云南夏季最受欢迎的饮品之一，深受当地人喜爱。</p>
+                    <h4 class="text-lg font-bold mb-2">推荐店铺</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>云南印象：位于昆明市五华区南屏步行街，是一家专门销售云南特色产品的店铺，酸角汁味道正宗。</li>
+                        <li>沃尔玛超市：昆明市各大沃尔玛超市都有销售瓶装酸角汁，方便携带。</li>
+                        <li>昆明街头饮品店：昆明的街头饮品店大多有销售酸角汁，可以品尝到新鲜制作的酸角汁。</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mb-2">小贴士</h4>
+                    <ul class="list-disc pl-5">
+                        <li>酸角汁最好冷藏后饮用，味道更佳。</li>
+                        <li>可以根据个人口味调整糖的用量。</li>
+                        <li>酸角汁可以作为日常饮品饮用，也可以作为解酒饮品。</li>
+                        <li>酸角汁是云南的特色伴手礼，可以购买瓶装酸角汁带回家。</li>
+                    </ul>
+                `,
+                restaurants: [
+                    {
+                        name: "云南印象",
+                        address: "昆明市五华区南屏步行街",
+                        priceRange: "人均15元",
+                        rating: "4.7/5"
+                    },
+                    {
+                        name: "沃尔玛超市",
+                        address: "昆明市各大沃尔玛超市",
+                        priceRange: "人均10元",
+                        rating: "4.6/5"
+                    },
+                    {
+                        name: "昆明街头饮品店",
+                        address: "昆明市各大街头饮品店",
+                        priceRange: "人均12元",
+                        rating: "4.5/5"
+                    }
+                ]
+            }
+        ];
+        
+        // 美食筛选功能
+        document.querySelectorAll('.food-filter').forEach(button => {
+            button.addEventListener('click', function() {
+                // 更新按钮样式
+                document.querySelectorAll('.food-filter').forEach(btn => {
+                    btn.classList.remove('bg-secondary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('bg-secondary', 'text-white');
+                
+                // 筛选美食
+                const filter = this.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.food-card');
+                
+                cards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        const categories = card.getAttribute('data-category').split(',');
+                        if (categories.includes(filter)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+        
+        // 美食详情模态框
+        const modal = document.getElementById('food-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+        
+        // 打开模态框
+        document.querySelectorAll('.view-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = parseInt(this.getAttribute('data-id'));
+                const food = foods.find(item => item.id === id);
+                
+                if (food) {
+                    // 填充模态框内容
+                    modalContent.innerHTML = `
+                        <div class="relative h-80 overflow-hidden rounded-lg mb-6">
+                            <img src="${food.image}" alt="${food.name}" class="w-full h-full object-cover">
+                            ${food.category.includes('musttry') ? `<div class="absolute top-4 right-4 bg-secondary text-white text-sm font-bold px-3 py-1 rounded-full">必尝美食</div>` : ''}
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">${food.name}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="text-sm font-bold text-gray-500 mb-1">价格</h4>
+                                <p class="text-primary font-bold">${food.price}</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="text-sm font-bold text-gray-500 mb-1">分类</h4>
+                                <p class="font-medium">${food.category.includes('snack') ? '特色小吃' : food.category.includes('dish') ? '经典菜肴' : '甜品饮品'}</p>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">美食介绍</h3>
+                        <div class="prose max-w-none mb-6">
+                            ${food.details}
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">推荐餐厅</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            ${food.restaurants.map(restaurant => `
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-bold">${restaurant.name}</h4>
+                                    <p class="text-sm text-gray-600 mb-1"><i class="fa fa-map-marker text-primary mr-1"></i> ${restaurant.address}</p>
+                                    <p class="text-sm text-gray-600 mb-1"><i class="fa fa-money text-primary mr-1"></i> ${restaurant.priceRange}</p>
+                                    <p class="text-sm text-gray-600"><i class="fa fa-star text-yellow-400 mr-1"></i> ${restaurant.rating}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="text-center">
+                            <a href="itinerary.html" class="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-secondary/90 transition-all-300 inline-flex items-center">
+                                <i class="fa fa-calendar mr-2"></i>查看在行程中的安排
+                            </a>
+                        </div>
+                    `;
+                    
+                    // 显示模态框
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // 关闭模态框
+        function hideModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        closeModal.addEventListener('click', hideModal);
+        modalOverlay.addEventListener('click', hideModal);
+        
+        // 点击模态框内容区域不关闭模态框
+        modalContent.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
