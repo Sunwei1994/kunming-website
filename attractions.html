@@ -93,18 +93,6 @@
 
     <!-- 主要内容 -->
     <main class="container mx-auto px-4 py-8">
-        <!-- 景点分类标签 -->
-        <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <button class="attraction-filter px-4 py-2 rounded-full bg-primary text-white" data-filter="all">全部景点</button>
-            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="planned">计划游览</button>
-            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day1">第1天</button>
-            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day2">第2天</button>
-            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day3">第3天</button>
-            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day4">第4天</button>
-            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day5">第5天</button>
-            <button class="attraction-filter px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all-300" data-filter="day6">第6天</button>
-        </div>
-
         <!-- 景点列表 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="attractions-container">
             <!-- 滇池 -->
@@ -112,7 +100,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1261042281285943322~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=%2Fh4djJ01LxJk2%2F2dNZyY8oRqMtw%3D" alt="滇池" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第2天
                     </div>
                 </div>
                 <div class="p-6">
@@ -140,7 +127,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/970532437091156038~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479981&x-signature=Layk5aqXZWrybvJACesp5fd5aGg%3D" alt="石林风景区" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第3天
                     </div>
                 </div>
                 <div class="p-6">
@@ -168,7 +154,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-qvj2lq49k0/97d181e59769494484891ba4862b48a2~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=XJOcI80zqyp4nJEPMwyNl%2FCV9UE%3D" alt="翠湖公园" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第1天
                     </div>
                 </div>
                 <div class="p-6">
@@ -196,7 +181,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/d9243348ff5742b4bc3f8b397c8dacd1~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=i3p6CJktIyqE0ZQstZdpkaUfOGo%3D" alt="云南陆军讲武堂" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第1天
                     </div>
                 </div>
                 <div class="p-6">
@@ -224,7 +208,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p26-doubao-search-sign.byteimg.com/labis/6b188d413349f9e8e941986a0c0ec5de~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=daqOnqNj5VqN9V1Yf%2Bcz6lBHl80%3D" alt="云南民族村" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第4天
                     </div>
                 </div>
                 <div class="p-6">
@@ -252,7 +235,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/869978886091177994~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=8%2B1dp6gzjQtXSMjx9ZYb73KmVxE%3D" alt="斗南花市" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第5天
                     </div>
                 </div>
                 <div class="p-6">
@@ -280,7 +262,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="官渡古镇" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第5天
                     </div>
                 </div>
                 <div class="p-6">
@@ -308,7 +289,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1258287429121867786~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=hWLJOkOr%2FvHte%2FrYv6NyfBMbC2A%3D" alt="西山风景区" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第2天
                     </div>
                 </div>
                 <div class="p-6">
@@ -336,7 +316,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="云南省博物馆" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第4天
                     </div>
                 </div>
                 <div class="p-6">
@@ -364,7 +343,6 @@
                 <div class="relative h-60 overflow-hidden">
                     <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/6fd92a74649c447cae6d3d00a928344e~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1783479980&x-signature=w%2FGqb1VThqAR9bw2etIxgjy%2BMNI%3D" alt="圆通寺" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                        第6天
                     </div>
                 </div>
                 <div class="p-6">
@@ -1038,40 +1016,6 @@
             }
         ];
         
-        // 景点筛选功能
-        document.querySelectorAll('.attraction-filter').forEach(button => {
-            button.addEventListener('click', function() {
-                // 更新按钮样式
-                document.querySelectorAll('.attraction-filter').forEach(btn => {
-                    btn.classList.remove('bg-primary', 'text-white');
-                    btn.classList.add('bg-gray-200', 'text-gray-700');
-                });
-                this.classList.remove('bg-gray-200', 'text-gray-700');
-                this.classList.add('bg-primary', 'text-white');
-                
-                // 筛选景点
-                const filter = this.getAttribute('data-filter');
-                const cards = document.querySelectorAll('.attraction-card');
-                
-                cards.forEach(card => {
-                    if (filter === 'all') {
-                        card.classList.remove('hidden');
-                    } else if (filter === 'planned') {
-                        if (card.getAttribute('data-planned') === 'true') {
-                            card.classList.remove('hidden');
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    } else {
-                        if (card.getAttribute('data-day') === filter.replace('day', '')) {
-                            card.classList.remove('hidden');
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    }
-                });
-            });
-        });
         
         // 景点详情模态框
         const modal = document.getElementById('attraction-modal');
